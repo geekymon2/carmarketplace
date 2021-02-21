@@ -1,13 +1,13 @@
-package com.geekymon2.carcity;
+package com.geekymon2.gallery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CarCityApplication {
+public class GalleryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CarCityApplication.class, args);
+		SpringApplication.run(GalleryApplication.class, args);
 	}
 
 }

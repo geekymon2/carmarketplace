@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.geekymon2</groupId>
-	<artifactId>carcity</artifactId>
+	<artifactId>gallery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>carcity</name>
-	<description>Car City</description>
+	<name>gallery</name>
+	<description>Gallery</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -45,7 +45,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>carcity</finalName>
+		<finalName>gallery</finalName>
 	</build>
 
 </project>
