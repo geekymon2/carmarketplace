@@ -1,10 +1,10 @@
-package com.geekymon2.gallery;
+package com.geekymon2.marketplace;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GalleryApplicationTests {
+class MarketplaceApplicationTests {
 
 	@Test
 	void contextLoads() {

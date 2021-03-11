@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.geekymon2</groupId>
-	<artifactId>gallery</artifactId>
+	<artifactId>marketplace</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gallery</name>
-	<description>Gallery</description>
+	<name>marketplace</name>
+	<description>Marketplace App</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -45,7 +45,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>gallery</finalName>
+		<finalName>marketplace</finalName>
 	</build>
 
 </project>
