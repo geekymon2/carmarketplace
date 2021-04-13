@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    @GetMapping("/list")
-    public String getList() {
-        return "A list of items";
+    @GetMapping("/test")
+    public String getTestMessage() {
+        return "This is a test from marketplace app";
     }
 
 }
