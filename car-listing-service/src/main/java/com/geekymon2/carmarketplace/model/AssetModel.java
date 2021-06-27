@@ -1,4 +1,4 @@
-package com.geekymon2.marketplace.model;
+package com.geekymon2.carmarketplace.model;
 
 public class AssetModel {
     private String id;
