@@ -8,11 +8,11 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.geekymon2</groupId>
-	<artifactId>marketplace</artifactId>
+	<groupId>com.geekymon2.carmarketplace</groupId>
+	<artifactId>car-listing-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>marketplace</name>
-	<description>Marketplace App</description>
+	<name>car-listing-service</name>
+	<description>Car Listing Service</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -45,7 +45,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>marketplace</finalName>
+		<finalName>car-listing-service</finalName>
 	</build>
 
 </project>
