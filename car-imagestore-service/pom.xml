@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>car-info-service</artifactId>
+	<artifactId>car-imagestore-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>car-info-service</name>
-	<description>Car Info Service</description>
+	<name>car-imagestore-service</name>
+	<description>Car Image Store</description>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>car-info-service</artifactId>
+	<artifactId>car-orchestrator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>car-info-service</name>
-	<description>Car Info Service</description>
+	<name>car-orchestrator</name>
+	<description>Car Marketplace Orchestrator</description>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -21,6 +22,10 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
