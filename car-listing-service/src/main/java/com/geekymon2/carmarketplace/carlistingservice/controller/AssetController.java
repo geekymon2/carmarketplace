@@ -1,4 +1,4 @@
-package com.geekymon2.carmarketplace.controller;
+package com.geekymon2.carmarketplace.carlistingservice.controller;
 
 import java.util.Arrays;
 import java.util.List;
