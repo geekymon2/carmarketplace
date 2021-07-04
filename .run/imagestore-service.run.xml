@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="imagestore-service" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carimagestoreservice.CarImageStoreServiceApplication" />
+    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carimagestoreservice.ImageStoreServiceApplication" />
     <module name="imagestore-service" />
     <method v="2">
       <option name="Make" enabled="true" />
