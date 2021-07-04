@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>car-imagestore-service</artifactId>
+	<artifactId>imagestore-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>car-imagestore-service</name>
-	<description>Car Image Store</description>
+	<name>imagestore-service</name>
+	<description>Image Store Service</description>
 
 	<dependencies>
 		<dependency>
