@@ -10,6 +10,9 @@ public class Car {
     int odometer;
     String description;
 
+    public Car() {
+    }
+
     public Car(long carId, String make, String model, int year, int doors, int seats, int odometer, String description) {
         this.carId = carId;
         this.make = make;

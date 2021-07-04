@@ -18,5 +18,4 @@ public class CarOrchestratorApplication {
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
-
 }

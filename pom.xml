@@ -16,7 +16,8 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-boot.version>2.5.2</spring-boot.version>
         <junit.version>4.13.1</junit.version>
-
+        <swagger.version>3.0.0</swagger.version>
+        <swagger.ui.version>3.0.0</swagger.ui.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -24,10 +25,21 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.ui.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
-                <scope>test</scope>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
