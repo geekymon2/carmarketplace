@@ -49,7 +49,7 @@
     <modules>
         <module>car-listing-service</module>
         <module>car-info-service</module>
-        <module>car-imagestore-service</module>
+        <module>imagestore-service</module>
         <module>car-orchestrator</module>
         <module>discovery-server</module>
     </modules>
