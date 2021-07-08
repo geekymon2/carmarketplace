@@ -20,6 +20,7 @@
         <swagger.ui.version>3.0.0</swagger.ui.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <base.context.path>/api</base.context.path>
 
     </properties>
     <dependencyManagement>

@@ -17,7 +17,7 @@ public class CarResource {
     @RequestMapping("/{carId}")
     public Car getCarInfo(@PathVariable("carId") String carId) {
 
-        return restTemplate.getForObject("http://car-info-service/cars/1", Car.class);
+        return restTemplate.getForObject("http://car-info-service/api/cars/1", Car.class);
 
     }
 }
