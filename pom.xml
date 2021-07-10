@@ -17,7 +17,7 @@
         <spring-boot.version>2.5.2</spring-boot.version>
         <junit.version>4.13.1</junit.version>
         <swagger.version>3.0.0</swagger.version>
-        <swagger.ui.version>3.0.0</swagger.ui.version>
+        <swagger.ui.version>3.0.3</swagger.ui.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <base.context.path>/api</base.context.path>
@@ -60,11 +60,12 @@
     </dependencyManagement>
 
     <modules>
+        <module>discovery-server</module>
+        <module>config-server</module>
         <module>car-listing-service</module>
         <module>car-info-service</module>
         <module>imagestore-service</module>
         <module>car-orchestrator</module>
-        <module>discovery-server</module>
     </modules>
 
 </project>
