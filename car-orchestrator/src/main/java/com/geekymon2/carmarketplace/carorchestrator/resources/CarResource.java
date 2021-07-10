@@ -1,6 +1,7 @@
 package com.geekymon2.carmarketplace.carorchestrator.resources;
 
 import com.geekymon2.carmarketplace.carorchestrator.models.Car;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ public class CarResource {
     @RequestMapping("/{carId}")
     public Car getCarInfo(@PathVariable("carId") String carId) {
 
-        return restTemplate.getForObject("http://car-info-service/api/cars/1", Car.class);
+        return restTemplate.getForObject("http://car-info-service/api/makes", Car.class);
 
     }
 }
