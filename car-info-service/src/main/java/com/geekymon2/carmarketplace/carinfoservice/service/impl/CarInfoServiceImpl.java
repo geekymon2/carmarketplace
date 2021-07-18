@@ -10,12 +10,11 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Override
     public List<CarMake> getCarMakes() {
-        throw new Exception("Not implemented");
+        return null;
     }
 
     @Override
     public List<CarModel> getCarModels(CarMake make) {
-        throw new Exception("Not implemented");
+        return null;
     }
-    
 }
