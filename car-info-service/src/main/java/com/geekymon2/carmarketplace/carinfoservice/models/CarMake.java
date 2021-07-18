@@ -11,6 +11,10 @@ public class CarMake {
         this.countryOfOrigin = countryOfOrigin;
     }
 
+    public CarMake(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
