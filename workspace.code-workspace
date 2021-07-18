@@ -10,5 +10,58 @@
 	"settings": {
 		"java.configuration.updateBuildConfiguration": "automatic",
 		"java.dependency.packagePresentation": "hierarchical"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "java",
+				"name": "Launch CarInfoServiceApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication",
+				"projectName": "car-info-service"
+			},
+			{
+				"type": "java",
+				"name": "Launch CarListingServiceApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication",
+				"projectName": "car-listing-service"
+			},
+			{
+				"type": "java",
+				"name": "Launch CarOrchestratorApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.carorchestrator.CarOrchestratorApplication",
+				"projectName": "car-orchestrator"
+			},
+			{
+				"type": "java",
+				"name": "Launch ConfigServerApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.configserver.ConfigServerApplication",
+				"projectName": "config-server"
+			},
+			{
+				"type": "java",
+				"name": "Launch DiscoveryServerApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.discoveryserver.DiscoveryServerApplication",
+				"projectName": "discovery-server"
+			},
+			{
+				"type": "java",
+				"name": "Launch ImageStoreServiceApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.carimagestoreservice.ImageStoreServiceApplication",
+				"projectName": "imagestore-service"
+			}
+		],
+		"compounds": [
+			{
+				"name": "All services",
+				"configurations": ["Launch DiscoveryServerApplication","Launch ConfigServerApplication","Launch CarInfoServiceApplication"]
+			}
+		]
 	}
 }

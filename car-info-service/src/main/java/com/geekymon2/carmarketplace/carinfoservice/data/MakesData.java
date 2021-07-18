@@ -1,11 +1,16 @@
 package com.geekymon2.carmarketplace.carinfoservice.data;
 
-import com.geekymon2.carmarketplace.carinfoservice.models.CarMake;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import com.geekymon2.carmarketplace.carinfoservice.models.CarMake;
+
 public class MakesData {
+
+    private MakesData() {
+        super();
+    }
+    
     public static List<CarMake> getMakesData() {
         List<CarMake> makes = new ArrayList<>();
         makes.add(new CarMake("FORD", "USA"));
