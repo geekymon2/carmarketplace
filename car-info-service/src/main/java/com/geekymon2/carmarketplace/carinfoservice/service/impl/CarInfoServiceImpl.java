@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
-import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
-import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
