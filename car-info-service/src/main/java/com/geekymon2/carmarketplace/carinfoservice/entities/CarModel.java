@@ -4,23 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class CarMake {
-
+public class CarModel {
     @Id
     private String id;
     private String name;
-    private String country;
 
-    public CarMake () {
+    public CarModel() {
     }
 
-    public CarMake(String id, String name, String country) {
+    public CarModel(String id, String name) {
         this.id = id;
-        this.name = name;
-        this.country = country;
-    }
-
-    public CarMake(String name) {
         this.name = name;
     }
 
@@ -38,13 +31,5 @@ public class CarMake {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 }

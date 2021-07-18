@@ -1,11 +1,14 @@
 package com.geekymon2.carmarketplace.carinfoservice.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import com.geekymon2.carmarketplace.carinfoservice.models.CarMake;
-import com.geekymon2.carmarketplace.carinfoservice.models.CarModel;
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
+import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
+import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +20,21 @@ public class CarInfoController {
 
     @Autowired
     private CarInfoService service;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping(value = "/makes")
-    public List<CarMake> getCarMakes() {
-        return service.getCarMakes();
+    public List<CarMakeDto> getCarMakes() {
+        return service.getAllCarMakes().stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/models")
-    public List<CarModel> getCarModels(String makeName) {
-        return service.getCarModels(new CarMake(makeName));
+    public List<CarModelDto> getCarModels(String makeName) {
+        //return service.getCarModels(new CarMake(makeName));
+        return null;
+    }
+
+    private CarMakeDto convertToDto(CarMake make) {
+        return modelMapper.map(make, CarMakeDto.class);
     }
 }

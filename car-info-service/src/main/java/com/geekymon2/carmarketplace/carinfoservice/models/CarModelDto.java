@@ -2,10 +2,10 @@ package com.geekymon2.carmarketplace.carinfoservice.models;
 
 import java.util.Objects;
 
-public class CarModel {
+public class CarModelDto {
     String name;
 
-    public CarModel(String name) {
+    public CarModelDto(String name) {
         this.name = name;
     }
 
@@ -21,8 +21,8 @@ public class CarModel {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CarModel carModel = (CarModel) o;
-        return name.equals(carModel.name);
+        CarModelDto carModelDto = (CarModelDto) o;
+        return name.equals(carModelDto.name);
     }
 
     @Override

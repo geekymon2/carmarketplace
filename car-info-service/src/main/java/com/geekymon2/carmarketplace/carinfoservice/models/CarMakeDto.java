@@ -2,16 +2,16 @@ package com.geekymon2.carmarketplace.carinfoservice.models;
 
 import java.util.Objects;
 
-public class CarMake {
+public class CarMakeDto {
     String name;
     String countryOfOrigin;
 
-    public CarMake(String name, String countryOfOrigin) {
+    public CarMakeDto(String name, String countryOfOrigin) {
         this.name = name;
         this.countryOfOrigin = countryOfOrigin;
     }
 
-    public CarMake(String name) {
+    public CarMakeDto(String name) {
         this.name = name;
     }
 
@@ -35,8 +35,8 @@ public class CarMake {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CarMake carMake = (CarMake) o;
-        return name.equals(carMake.name) && countryOfOrigin.equals(carMake.countryOfOrigin);
+        CarMakeDto carMakeDto = (CarMakeDto) o;
+        return name.equals(carMakeDto.name) && countryOfOrigin.equals(carMakeDto.countryOfOrigin);
     }
 
     @Override
