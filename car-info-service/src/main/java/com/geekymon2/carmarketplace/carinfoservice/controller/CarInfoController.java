@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
-import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
+import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceImpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CarInfoController {
 
     @Autowired
-    private CarInfoService service;
+    private CarInfoServiceImpl service;
     @Autowired
     private ModelMapper modelMapper;
 

@@ -1,0 +1,5 @@
+INSERT INTO make(country, name) VALUES ('USA','FORD')
+INSERT INTO make(country, name) VALUES ('GERMANY','AUDI')
+INSERT INTO make(country, name) VALUES ('USA','FORD')
+INSERT INTO make(country, name) VALUES ('USA','FORD')
+INSERT INTO make(country, name) VALUES ('USA','FORD')

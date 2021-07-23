@@ -1,5 +1,7 @@
 package com.geekymon2.carmarketplace.carinfoservice;
 
+import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceImpl;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,4 +21,10 @@ public class CarInfoServiceApplication {
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
+
+	@Bean
+	public CarInfoServiceImpl carInfoService() {
+		return new CarInfoServiceImpl();
+	}
+
 }

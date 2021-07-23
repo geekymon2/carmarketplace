@@ -1,20 +1,23 @@
 package com.geekymon2.carmarketplace.carinfoservice.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="make")
 public class CarMake {
 
-    @Id
-    private String id;
+    @Id 
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String country;
 
     public CarMake () {
     }
 
-    public CarMake(String id, String name, String country) {
+    public CarMake(Long id, String name, String country) {
         this.id = id;
         this.name = name;
         this.country = country;
@@ -24,11 +27,11 @@ public class CarMake {
         this.name = name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
