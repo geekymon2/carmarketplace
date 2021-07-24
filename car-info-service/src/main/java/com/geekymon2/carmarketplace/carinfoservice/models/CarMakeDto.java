@@ -4,15 +4,15 @@ import java.util.Objects;
 
 public class CarMakeDto {
     String name;
-    String countryOfOrigin;
+    String country;
 
     public CarMakeDto() {
         super();
     }
 
-    public CarMakeDto(String name, String countryOfOrigin) {
+    public CarMakeDto(String name, String country) {
         this.name = name;
-        this.countryOfOrigin = countryOfOrigin;
+        this.country = country;
     }
 
     public CarMakeDto(String name) {
@@ -27,12 +27,12 @@ public class CarMakeDto {
         this.name = name;
     }
 
-    public String getCountryOfOrigin() {
-        return countryOfOrigin;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCountryOfOrigin(String countryOfOrigin) {
-        this.countryOfOrigin = countryOfOrigin;
+    public void setCountry(String countryOfOrigin) {
+        this.country = countryOfOrigin;
     }
 
     @Override
@@ -40,11 +40,11 @@ public class CarMakeDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarMakeDto carMakeDto = (CarMakeDto) o;
-        return name.equals(carMakeDto.name) && countryOfOrigin.equals(carMakeDto.countryOfOrigin);
+        return name.equals(carMakeDto.name) && country.equals(carMakeDto.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, countryOfOrigin);
+        return Objects.hash(name, country);
     }
 }
