@@ -80,7 +80,7 @@
 				"type": "pwa-chrome",
 				"url": "http://localhost:8082/api/swagger-ui/",
 				"webRoot": "$M2/Development/GeekyMon2/carmarketplace",
-				"preLaunchTask": "sleep12"
+				"preLaunchTask": "sleep15"
 			},
 		],
 		"compounds": [
@@ -104,9 +104,9 @@
 				"command": "sleep 5"
 			},
 			{
-				"label": "sleep12",
+				"label": "sleep15",
 				"type": "shell",
-				"command": "sleep 12"
+				"command": "sleep 15"
 			},
 		]
 	}
