@@ -6,6 +6,10 @@ public class CarMakeDto {
     String name;
     String countryOfOrigin;
 
+    public CarMakeDto() {
+        super();
+    }
+
     public CarMakeDto(String name, String countryOfOrigin) {
         this.name = name;
         this.countryOfOrigin = countryOfOrigin;

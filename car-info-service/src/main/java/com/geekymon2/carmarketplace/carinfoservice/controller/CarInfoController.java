@@ -28,6 +28,11 @@ public class CarInfoController {
         return service.getAllCarMakes().stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/makes/count")
+    public long getCarMakesCount() {
+        return service.getCarMakesCount();
+    }
+
     @GetMapping(value = "/models")
     public List<CarModelDto> getCarModels(String makeName) {
         //return service.getCarModels(new CarMake(makeName));

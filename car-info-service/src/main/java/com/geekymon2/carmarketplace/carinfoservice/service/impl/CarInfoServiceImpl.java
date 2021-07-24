@@ -2,6 +2,7 @@ package com.geekymon2.carmarketplace.carinfoservice.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
@@ -17,12 +18,25 @@ public class CarInfoServiceImpl implements CarInfoService {
     @Override
     public List<CarMake> getAllCarMakes() {
         List<CarMake> makes = new ArrayList<>();
-        carMakeRepository.findAll().addAll(makes);
+        carMakeRepository.findAll().forEach(makes::add);
         return makes;
+    }
+
+    @Override
+    public CarMake getCarMakeById(long id) {
+        Optional<CarMake> make;
+        make  = carMakeRepository.findById(id);
+        return make.get();
     }
 
     @Override
     public List<CarModel> getCarModels(CarMake make) {
         return null;
     }
+
+    @Override
+    public long getCarMakesCount() {
+        return carMakeRepository.count();
+    }
+
 }
