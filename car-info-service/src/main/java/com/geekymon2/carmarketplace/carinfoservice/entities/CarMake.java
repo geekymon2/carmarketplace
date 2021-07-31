@@ -1,10 +1,13 @@
 package com.geekymon2.carmarketplace.carinfoservice.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name="make")
 public class CarMake {
@@ -16,8 +19,14 @@ public class CarMake {
     @Column(name="name", unique=true)    
     private String name;
     private String country;
+    @OneToMany(mappedBy="make")
+    private Set<CarModel> models;
 
     public CarMake () {
+    }
+
+    public CarMake(String name) {
+        this.name = name;
     }
 
     public CarMake(Long id, String name, String country) {
@@ -26,8 +35,11 @@ public class CarMake {
         this.country = country;
     }
 
-    public CarMake(String name) {
+    public CarMake(Long id, String name, String country, Set<CarModel> models) {
+        this.id = id;
         this.name = name;
+        this.country = country;
+        this.models = models;
     }
 
     public Long getId() {
@@ -52,5 +64,13 @@ public class CarMake {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Set<CarModel> getModels() {
+        return models;
+    }
+
+    public void setModels(Set<CarModel> models) {
+        this.models = models;
     }
 }

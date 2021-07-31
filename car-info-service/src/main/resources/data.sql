@@ -1,3 +1,4 @@
+-- insert makes
 INSERT INTO make(country, name) VALUES ('USA','FORD')
 INSERT INTO make(country, name) VALUES ('Germany','AUDI')
 INSERT INTO make(country, name) VALUES ('Germany','BMW')
@@ -18,3 +19,11 @@ INSERT INTO make(country, name) VALUES ('Japan','SUBARU')
 INSERT INTO make(country, name) VALUES ('Japan','SUZUKI')
 INSERT INTO make(country, name) VALUES ('Germany','VOLKSWAGEN')
 INSERT INTO make(country, name) VALUES ('Sweden','VOLVO')
+
+-- insert models
+INSERT INTO model(name, make_id) VALUES ('Ford Falcon',(SELECT id from make WHERE name = 'FORD'))
+INSERT INTO model(name, make_id) VALUES ('Ford Focus',(SELECT id from make WHERE name = 'FORD'))
+INSERT INTO model(name, make_id) VALUES ('Ford Puma',(SELECT id from make WHERE name = 'FORD'))
+INSERT INTO model(name, make_id) VALUES ('Ford Everest',(SELECT id from make WHERE name = 'FORD'))
+INSERT INTO model(name, make_id) VALUES ('Ford Escape',(SELECT id from make WHERE name = 'FORD'))
+INSERT INTO model(name, make_id) VALUES ('Ford Ranger',(SELECT id from make WHERE name = 'FORD'))
