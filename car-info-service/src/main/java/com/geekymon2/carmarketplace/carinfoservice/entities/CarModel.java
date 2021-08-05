@@ -16,9 +16,8 @@ public class CarModel {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private CarModelType type;
-
     @ManyToOne
     @JoinColumn(name="make_id", nullable=false)
     private CarMake make;
