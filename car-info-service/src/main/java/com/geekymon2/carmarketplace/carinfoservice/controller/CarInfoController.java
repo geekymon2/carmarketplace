@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceImpl;
@@ -25,7 +26,7 @@ public class CarInfoController {
 
     @GetMapping(value = "/makes")
     public List<CarMakeDto> getCarMakes() {
-        return service.getAllCarMakes().stream().map(this::convertToDto).collect(Collectors.toList());
+        return service.getAllCarMakes().stream().map(this::makeToDto).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/makes/count")
@@ -35,11 +36,14 @@ public class CarInfoController {
 
     @GetMapping(value = "/models")
     public List<CarModelDto> getCarModels(String makeName) {
-        //return service.getCarModels(new CarMake(makeName));
-        return null;
+        return service.getCarModels(makeName).stream().map(this::modelToDto).collect(Collectors.toList());
     }
 
-    private CarMakeDto convertToDto(CarMake make) {
+    private CarMakeDto makeToDto(CarMake make) {
         return modelMapper.map(make, CarMakeDto.class);
     }
+
+    private CarModelDto modelToDto(CarModel model) {
+        return modelMapper.map(model, CarModelDto.class);
+    }    
 }

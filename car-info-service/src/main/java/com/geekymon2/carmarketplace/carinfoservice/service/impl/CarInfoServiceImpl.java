@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
+import com.geekymon2.carmarketplace.carinfoservice.repository.CarModelRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +15,9 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Autowired
     private CarMakeRepository carMakeRepository;
+
+    @Autowired
+    private CarModelRepository carModelRepository;
 
     @Override
     public List<CarMake> getAllCarMakes() {
@@ -30,13 +34,12 @@ public class CarInfoServiceImpl implements CarInfoService {
     }
 
     @Override
-    public List<CarModel> getCarModels(CarMake make) {
-        return null;
+    public List<CarModel> getCarModels(String makeName) {
+        return carModelRepository.findByName(makeName); 
     }
 
     @Override
     public long getCarMakesCount() {
         return carMakeRepository.count();
     }
-
 }

@@ -11,4 +11,5 @@ public interface ReadOnlyRepository<T, ID> extends Repository<T, ID> {
     Optional<T> findById(ID id);
     List<T> findAll();
     Long count();
+    List<T> findByName(String name);
 }

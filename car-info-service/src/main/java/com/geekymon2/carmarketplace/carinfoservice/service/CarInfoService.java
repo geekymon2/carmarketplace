@@ -9,5 +9,5 @@ public interface CarInfoService {
     List<CarMake> getAllCarMakes();
     long getCarMakesCount();
     CarMake getCarMakeById(long id);
-    List<CarModel> getCarModels(CarMake make);
+    List<CarModel> getCarModels(String makeName);
 }
