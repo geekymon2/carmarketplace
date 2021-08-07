@@ -6,4 +6,5 @@ public enum CarModelType {
     HATCHBACK,
     PERFORMANCE,    
     COMMERCIAL,
+    UTE
 }

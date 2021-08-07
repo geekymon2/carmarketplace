@@ -1,6 +1,11 @@
 package com.geekymon2.carmarketplace.carinfoservice.repository;
 
-import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
+import java.util.List;
 
-public interface CarModelRepository extends ReadOnlyRepository<CarModel, Long> {
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CarModelRepository extends ReadOnlyRepository<CarModel, Long> { 
+    List<CarModel> findByMakeId(Long makeId);
 }

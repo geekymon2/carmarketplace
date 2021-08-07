@@ -35,7 +35,8 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Override
     public List<CarModel> getCarModels(String makeName) {
-        return carModelRepository.findByName(makeName); 
+        CarMake make = carMakeRepository.findOneByName(makeName);
+        return carModelRepository.findByMakeId(make.getId()); 
     }
 
     @Override

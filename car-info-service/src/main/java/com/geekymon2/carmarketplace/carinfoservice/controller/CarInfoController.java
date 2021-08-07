@@ -44,6 +44,9 @@ public class CarInfoController {
     }
 
     private CarModelDto modelToDto(CarModel model) {
-        return modelMapper.map(model, CarModelDto.class);
+        CarModelDto dto = modelMapper.map(model, CarModelDto.class);
+        dto.setId(model.getId());
+        dto.setType(model.getModelType().toString());
+        return dto;
     }    
 }

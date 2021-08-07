@@ -3,11 +3,18 @@ package com.geekymon2.carmarketplace.carinfoservice.models;
 import java.util.Objects;
 
 public class CarMakeDto {
+    Long id;
     String name;
     String country;
 
     public CarMakeDto() {
         super();
+    }
+
+    public CarMakeDto(Long id, String name, String country) {
+        this.id = id;
+        this.name = name;
+        this.country = country;
     }
 
     public CarMakeDto(String name, String country) {
