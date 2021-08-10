@@ -12,6 +12,7 @@ import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceIm
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,11 @@ public class CarInfoController {
         return service.getAllCarMakes().stream().map(this::makeToDto).collect(Collectors.toList());
     }
 
+    @GetMapping(value = "/makes/{id}")
+    public CarMakeDto getCarMakeById(@PathVariable("id") long id) {
+        return makeToDto(service.getCarMakeById(id));
+    }
+
     @GetMapping(value = "/makes/count")
     public long getCarMakesCount() {
         return service.getCarMakesCount();
@@ -37,6 +43,11 @@ public class CarInfoController {
     @GetMapping(value = "/models")
     public List<CarModelDto> getCarModels(String makeName) {
         return service.getCarModels(makeName).stream().map(this::modelToDto).collect(Collectors.toList());
+    }
+
+    @GetMapping(value = "/models/{id}")
+    public CarModelDto getCarModels(@PathVariable("id") long id) {
+        return modelToDto(service.getCarModelById(id));
     }
 
     private CarMakeDto makeToDto(CarMake make) {

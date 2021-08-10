@@ -40,6 +40,13 @@ public class CarInfoServiceImpl implements CarInfoService {
     }
 
     @Override
+    public CarModel getCarModelById(long id) {
+        Optional<CarModel> model;
+        model  = carModelRepository.findById(id);
+        return model.get();
+    }
+
+    @Override
     public long getCarMakesCount() {
         return carMakeRepository.count();
     }
