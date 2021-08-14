@@ -1,4 +1,4 @@
-package com.geekymon2.carmarketplace.carinfoservice;
+package com.geekymon2.carmarketplace.carinfoservice.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
