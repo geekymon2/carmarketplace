@@ -43,8 +43,13 @@ public class CarInfoController {
     }
 
     @GetMapping(value = "/models")
-    public List<CarModelDto> getCarModels(String makeName) {
-        return service.getCarModels(makeName).stream().map(this::modelToDto).collect(Collectors.toList());
+    public List<CarModelDto> getCarModelsByMake(String make) {
+        return service.getCarModels(make).stream().map(this::modelToDto).collect(Collectors.toList());
+    }
+
+    @GetMapping(value = "/models/{make}")
+    public List<CarModelDto> getCarModelsByMakeAndType(String make, String type) {
+        return service.getCarModels(make).stream().map(this::modelToDto).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/models/{id}")
