@@ -9,20 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-@Entity(name="make")
+@Entity(name = "make")
 public class CarMake {
 
-    @Id 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name", unique=true)    
+    @Column(name = "name", unique = true)
     private String name;
     private String country;
-    @OneToMany(mappedBy="make")
+    @OneToMany(mappedBy = "make")
     private Set<CarModel> models;
 
-    public CarMake () {
+    public CarMake() {
     }
 
     public CarMake(String name) {
