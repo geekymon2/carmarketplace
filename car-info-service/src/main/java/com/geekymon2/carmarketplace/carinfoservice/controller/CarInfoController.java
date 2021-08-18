@@ -43,13 +43,17 @@ public class CarInfoController {
     }
 
     @GetMapping(value = "/models")
-    public List<CarModelDto> getCarModelsByMake(String make) {
-        return service.getCarModels(make).stream().map(this::modelToDto).collect(Collectors.toList());
-    }
-
-    @GetMapping(value = "/models/{make}")
     public List<CarModelDto> getCarModelsByMakeAndType(String make, String type) {
-        return service.getCarModels(make).stream().map(this::modelToDto).collect(Collectors.toList());
+        //TODO: improve this, this is not optimal.
+        if (make != null && type == null) {
+            return service.getCarModels(make).stream().map(this::modelToDto).collect(Collectors.toList());
+        }
+        else if (make == null && type != null) {
+            return service.getCarModels(make, type).stream().map(this::modelToDto).collect(Collectors.toList());
+        }
+        else {
+            return service.getAllCarModels().stream().map(this::modelToDto).collect(Collectors.toList());
+        }
     }
 
     @GetMapping(value = "/models/{id}")

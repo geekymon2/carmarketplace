@@ -35,9 +35,24 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Override
     public List<CarModel> getCarModels(String makeName) {
-        CarMake make = carMakeRepository.findOneByName(makeName);
+        CarMake make = carMakeRepository.findOneByName(makeName);      
         return carModelRepository.findByMakeId(make.getId()); 
     }
+
+    @Override
+    public List<CarModel> getCarModels(String makeName, String typeName) {
+        CarMake make = carMakeRepository.findOneByName(makeName);    
+        // TODO: complete this later.
+        //CarModelType type =  
+        return carModelRepository.findByMakeId(make.getId()); 
+    }
+
+    @Override
+    public List<CarModel> getAllCarModels() {
+        List<CarModel> models = new ArrayList<>();
+        carModelRepository.findAll().forEach(models::add); 
+        return models;
+    }    
 
     @Override
     public CarModel getCarModelById(long id) {
@@ -50,4 +65,6 @@ public class CarInfoServiceImpl implements CarInfoService {
     public long getCarMakesCount() {
         return carMakeRepository.count();
     }
+
+
 }
