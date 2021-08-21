@@ -6,19 +6,21 @@ import java.util.Optional;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
-import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarModelRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CarInfoServiceImpl implements CarInfoService {
 
-    @Autowired
-    private CarMakeRepository carMakeRepository;
+    private final CarMakeRepository carMakeRepository;
+    private final CarModelRepository carModelRepository;
 
-    @Autowired
-    private CarModelRepository carModelRepository;
+    public CarInfoServiceImpl(CarMakeRepository carMakeRepository, CarModelRepository carModelRepository) {
+        this.carMakeRepository = carMakeRepository;
+        this.carModelRepository = carModelRepository;
+    }
 
     @Override
     public List<CarMake> getAllCarMakes() {
@@ -37,7 +39,7 @@ public class CarInfoServiceImpl implements CarInfoService {
     @Override
     public List<CarModel> getCarModels(String makeName, String typeName) {
         CarMake make = carMakeRepository.findOneByName(makeName);    
-        return carModelRepository.findByMakeIdAndModelType(make.getId(), CarModelType.valueOf(typeName)); 
+        return carModelRepository.findByMakeId(make.getId());
     }
 
     @Override
