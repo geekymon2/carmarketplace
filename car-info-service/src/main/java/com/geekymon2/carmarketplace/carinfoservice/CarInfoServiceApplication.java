@@ -1,6 +1,6 @@
 package com.geekymon2.carmarketplace.carinfoservice;
 
-import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceImpl;
+import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package com.geekymon2.carmarketplace.carinfoservice.service.impl;
+package com.geekymon2.carmarketplace.carinfoservice.serviceimpl;
 
 import java.util.ArrayList;
 import java.util.List;

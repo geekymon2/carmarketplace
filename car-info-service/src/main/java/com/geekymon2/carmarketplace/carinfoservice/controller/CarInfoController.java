@@ -7,7 +7,7 @@ import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
-import com.geekymon2.carmarketplace.carinfoservice.service.impl.CarInfoServiceImpl;
+import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
