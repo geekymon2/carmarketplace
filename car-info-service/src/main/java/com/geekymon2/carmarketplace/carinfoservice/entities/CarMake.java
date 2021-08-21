@@ -1,5 +1,6 @@
 package com.geekymon2.carmarketplace.carinfoservice.entities;
 
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -72,5 +73,19 @@ public class CarMake {
 
     public void setModels(Set<CarModel> models) {
         this.models = models;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CarMake carMake = (CarMake) o;
+        return id.equals(carMake.id) && name.equals(carMake.name) && country.equals(carMake.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, country);
     }
 }

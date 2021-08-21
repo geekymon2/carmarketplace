@@ -1,24 +1,6 @@
 -- insert makes
 INSERT INTO make(country, name) VALUES ('USA','FORD')
 INSERT INTO make(country, name) VALUES ('Germany','AUDI')
-INSERT INTO make(country, name) VALUES ('Germany','BMW')
-INSERT INTO make(country, name) VALUES ('Japan','MAZDA')
-INSERT INTO make(country, name) VALUES ('Japan','TOYOTA')
-INSERT INTO make(country, name) VALUES ('Italy','FERRARI')
-INSERT INTO make(country, name) VALUES ('Australia','HOLDEN')
-INSERT INTO make(country, name) VALUES ('Japan','HONDA')
-INSERT INTO make(country, name) VALUES ('South Korea','HYUNDIA')
-INSERT INTO make(country, name) VALUES ('South Korea','KIA')
-INSERT INTO make(country, name) VALUES ('Italy','LAMBORGHINI')
-INSERT INTO make(country, name) VALUES ('England','LAND ROVER')
-INSERT INTO make(country, name) VALUES ('Japan','LEXUS')
-INSERT INTO make(country, name) VALUES ('Germany','MERCEDES-BENZ')
-INSERT INTO make(country, name) VALUES ('Japan','MITSUBISHI')
-INSERT INTO make(country, name) VALUES ('Japan','NISSAN')
-INSERT INTO make(country, name) VALUES ('Japan','SUBARU')
-INSERT INTO make(country, name) VALUES ('Japan','SUZUKI')
-INSERT INTO make(country, name) VALUES ('Germany','VOLKSWAGEN')
-INSERT INTO make(country, name) VALUES ('Sweden','VOLVO')
 
 -- insert models
 -- FORD
