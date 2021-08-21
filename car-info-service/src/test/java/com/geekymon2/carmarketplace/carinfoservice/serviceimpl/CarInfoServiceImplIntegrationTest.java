@@ -76,7 +76,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     //* This needs to match the make data in data.sql for the integration tests to be successful.
     private List<CarMake> generateValidMakeData() {
-        List<CarMake> makes = new ArrayList();
+        List<CarMake> makes = new ArrayList<>();
         makes.add(new CarMake((long)1,"FORD","USA"));
         makes.add(new CarMake((long)2,"AUDI","Germany"));
         return makes;
@@ -84,7 +84,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     //* This should not match the make data in data.sql for the integration tests to be successful.
     private List<CarMake> generateInValidMakeData() {
-        List<CarMake> makes = new ArrayList();
+        List<CarMake> makes = new ArrayList<>();
         makes.add(new CarMake((long)1,"XXXX","XXXX"));
         makes.add(new CarMake((long)1,"YYYY","YYYY"));
         return makes;
