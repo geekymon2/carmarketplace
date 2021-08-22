@@ -21,6 +21,7 @@ INSERT INTO make(country, name) VALUES ('Germany','VOLKSWAGEN')
 INSERT INTO make(country, name) VALUES ('Sweden','VOLVO')
 
 -- insert models
+
 -- FORD
 INSERT INTO model(name, type, make_id) VALUES ('Ford Falcon', 'SEDAN',(SELECT id from make WHERE name = 'FORD'))
 INSERT INTO model(name, type, make_id) VALUES ('Ford Focus Sedan', 'SEDAN',(SELECT id from make WHERE name = 'FORD'))
