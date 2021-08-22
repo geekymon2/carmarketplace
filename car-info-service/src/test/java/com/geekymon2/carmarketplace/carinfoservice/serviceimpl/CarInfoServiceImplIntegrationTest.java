@@ -47,7 +47,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test all valid car makes.")
-    void getAllCarMakesTestValid() {
+    void getAllCarMakesValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateValidMakeData();
@@ -56,7 +56,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test for invalid car make.")
-    void getAllCarMakesTestInValid() {
+    void getAllCarMakesInValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateInValidMakeData();
@@ -65,7 +65,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test valid car make by id.")
-    void getCarMakeByIdTestValid() {
+    void getCarMakeByIdValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(1L, "FORD", "USA");
@@ -74,7 +74,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test invalid car make by id.")
-    void getCarMakeByIdTestInValid() {
+    void getCarMakeByIdInValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(99L, "XXX", "XXX");
@@ -134,7 +134,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test all valid car models.")
-    void getAllCarModelsTestValid() {
+    void getAllCarModelsValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarModel> actual = impl.getAllCarModels();
         List<CarModel> expected = generateValidModelsData();
@@ -143,7 +143,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test valid car model by id.")
-    void getCarModelByIdTestValid() {
+    void getCarModelByIdValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(1L, "Ford Falcon", new CarMake(1L, "FORD", "USA"), CarModelType.SEDAN);
@@ -152,7 +152,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test invalid car model by id.")
-    void getCarModelByIdTestInValid() {
+    void getCarModelByIdInValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(999L, "XXX", new CarMake(999L, "XXX", "XXX"), CarModelType.UTE);
@@ -161,7 +161,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test invalid car makes count.")
-    void getCarMakesCountInValid() {
+    void getCarMakesCountInValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         long actual = impl.getCarMakesCount();
         long expected = 999;
@@ -170,7 +170,7 @@ public class CarInfoServiceImplIntegrationTest {
 
     @Test
     @DisplayName("Test valid car makes count.")
-    void getCarMakesCountValid() {
+    void getCarMakesCountValidTest() {
         CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         long actual = impl.getCarMakesCount();
         long expected = 2;
