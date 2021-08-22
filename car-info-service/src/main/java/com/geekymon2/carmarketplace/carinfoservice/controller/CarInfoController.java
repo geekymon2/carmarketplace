@@ -1,16 +1,11 @@
 package com.geekymon2.carmarketplace.carinfoservice.controller;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
-
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,14 +13,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/car")
 public class CarInfoController {
 
-    @Autowired
     private CarInfoServiceImpl service;
-    @Autowired
-    private ModelMapper modelMapper;
+    private ModelMapper mapper;
+
+    public CarInfoController(CarInfoServiceImpl service, ModelMapper mapper) {
+        this.service = service;
+        this.mapper = mapper;
+    }
 
     @GetMapping(value = "/makes")
     public List<CarMakeDto> getCarMakes() {
@@ -58,11 +59,11 @@ public class CarInfoController {
     }
 
     private CarMakeDto makeToDto(CarMake make) {
-        return modelMapper.map(make, CarMakeDto.class);
+        return mapper.map(make, CarMakeDto.class);
     }
 
     private CarModelDto modelToDto(CarModel model) {
-        CarModelDto dto = modelMapper.map(model, CarModelDto.class);
+        CarModelDto dto = mapper.map(model, CarModelDto.class);
         dto.setId(model.getId());
         dto.setType(model.getModelType().toString());
         return dto;

@@ -28,13 +28,11 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class CarInfoServiceImplIntegrationTest {
 
-    private final CarMakeRepository carMakeRepository;
-    private final CarModelRepository carModelRepository;
+    private final CarInfoServiceImpl impl;
 
     @Autowired
     public CarInfoServiceImplIntegrationTest(CarMakeRepository carMakeRepository, CarModelRepository carModelRepository) {
-        this.carMakeRepository = carMakeRepository;
-        this.carModelRepository = carModelRepository;
+        this.impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
     }
 
     @BeforeEach
@@ -48,7 +46,7 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test all valid car makes.")
     void getAllCarMakesValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
+
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateValidMakeData();
         assertThat(expected.equals(actual)).isTrue();
@@ -57,7 +55,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test for invalid car make.")
     void getAllCarMakesInValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateInValidMakeData();
         assertThat(expected.equals(actual)).isFalse();
@@ -66,7 +63,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test valid car make by id.")
     void getCarMakeByIdValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(1L, "FORD", "USA");
         assertThat(expected.equals(actual)).isTrue();
@@ -75,7 +71,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test invalid car make by id.")
     void getCarMakeByIdInValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(99L, "XXX", "XXX");
         assertThat(expected.equals(actual)).isFalse();
@@ -84,7 +79,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test car models filter on make and type.")
     void getCarModelsByMakeAndTypeTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarModel> actual = impl.getCarModels("FORD", "SEDAN");
         List<CarModel>  expected = new ArrayList<>();
 
@@ -99,7 +93,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test car models filter on type.")
     void getCarModelsByTypeTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarModel> actual = impl.getCarModels(null, "SEDAN");
         List<CarModel>  expected = new ArrayList<>();
 
@@ -118,7 +111,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test car models filter on make.")
     void getCarModelsByMakeTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarModel> actual = impl.getCarModels("AUDI", null);
         List<CarModel>  expected = new ArrayList<>();
 
@@ -135,7 +127,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test all valid car models.")
     void getAllCarModelsValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         List<CarModel> actual = impl.getAllCarModels();
         List<CarModel> expected = generateValidModelsData();
         assertThat(expected.equals(actual)).isTrue();
@@ -144,7 +135,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test valid car model by id.")
     void getCarModelByIdValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(1L, "Ford Falcon", new CarMake(1L, "FORD", "USA"), CarModelType.SEDAN);
         assertThat(expected.equals(actual)).isTrue();
@@ -153,7 +143,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test invalid car model by id.")
     void getCarModelByIdInValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(999L, "XXX", new CarMake(999L, "XXX", "XXX"), CarModelType.UTE);
         assertThat(expected.equals(actual)).isFalse();
@@ -162,7 +151,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test invalid car makes count.")
     void getCarMakesCountInValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         long actual = impl.getCarMakesCount();
         long expected = 999;
         assertNotEquals(expected, actual);
@@ -171,7 +159,6 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test valid car makes count.")
     void getCarMakesCountValidTest() {
-        CarInfoServiceImpl impl = new CarInfoServiceImpl(carMakeRepository, carModelRepository);
         long actual = impl.getCarMakesCount();
         long expected = 2;
         assertEquals(expected, actual);
