@@ -1,11 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="carmarketplace" type="CompoundRunConfigurationType">
     <toRun name="car-info-service" type="Application" />
-    <toRun name="imagestore-service" type="Application" />
-    <toRun name="discovery-server" type="Application" />
-    <toRun name="car-listing-service" type="Application" />
-    <toRun name="car-orchestrator" type="Application" />
     <toRun name="config-server" type="Application" />
+    <toRun name="discovery-server" type="Application" />
     <method v="2" />
   </configuration>
 </component>

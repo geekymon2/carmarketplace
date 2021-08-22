@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
-@TestPropertySource(locations = "classpath:application-integration-test.properties")
+@ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class CarInfoServiceImplIntegrationTest {
 
     private final CarMakeRepository carMakeRepository;
@@ -102,7 +104,7 @@ public class CarInfoServiceImplIntegrationTest {
         List<CarModel>  expected = new ArrayList<>();
 
         CarMake ford = new CarMake(1L,"FORD","USA");
-        CarMake audi = new CarMake(1L,"AUDI","Germany");
+        CarMake audi = new CarMake(2L,"AUDI","Germany");
 
         expected.add(new CarModel(1L, "Ford Falcon", ford, CarModelType.SEDAN));
         expected.add(new CarModel(2L, "Ford Focus Sedan", ford, CarModelType.SEDAN));
