@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarModelRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
@@ -38,8 +39,10 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Override
     public List<CarModel> getCarModels(String makeName, String typeName) {
-        CarMake make = carMakeRepository.findOneByName(makeName);    
-        return carModelRepository.findByMakeId(make.getId());
+        CarMake make = (makeName != null) ? carMakeRepository.findOneByName(makeName): null;
+        CarModelType type = (typeName != null) ? CarModelType.valueOf(typeName) : null;
+
+        return carModelRepository.findByMakeIdAndType((make != null) ? make.getId() : null, type);
     }
 
     @Override
