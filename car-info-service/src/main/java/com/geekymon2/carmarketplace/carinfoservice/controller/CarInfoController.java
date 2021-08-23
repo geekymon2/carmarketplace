@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/car")
 public class CarInfoController {
 
-    private CarInfoServiceImpl service;
-    private ModelMapper mapper;
+    private final CarInfoServiceImpl service;
+    private final ModelMapper mapper;
 
     public CarInfoController(CarInfoServiceImpl service, ModelMapper mapper) {
         this.service = service;
@@ -54,7 +54,7 @@ public class CarInfoController {
     }
 
     @GetMapping(value = "/models/{id}")
-    public CarModelDto getCarModels(@PathVariable("id") long id) {
+    public CarModelDto getCarModelById(@PathVariable("id") long id) {
         return modelToDto(service.getCarModelById(id));
     }
 

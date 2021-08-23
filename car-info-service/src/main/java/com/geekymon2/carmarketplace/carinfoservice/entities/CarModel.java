@@ -26,17 +26,6 @@ public class CarModel {
     public CarModel() {
     }
 
-    public CarModel(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public CarModel(Long id, String name, CarMake make) {
-        this.id = id;
-        this.name = name;
-        this.make = make;
-    }
-
     public CarModel(Long id, String name, CarMake make, CarModelType type) {
         this.id = id;
         this.name = name;

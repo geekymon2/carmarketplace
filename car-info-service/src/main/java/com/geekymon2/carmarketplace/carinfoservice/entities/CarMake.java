@@ -26,21 +26,10 @@ public class CarMake {
     public CarMake() {
     }
 
-    public CarMake(String name) {
-        this.name = name;
-    }
-
     public CarMake(Long id, String name, String country) {
         this.id = id;
         this.name = name;
         this.country = country;
-    }
-
-    public CarMake(Long id, String name, String country, Set<CarModel> models) {
-        this.id = id;
-        this.name = name;
-        this.country = country;
-        this.models = models;
     }
 
     public Long getId() {
