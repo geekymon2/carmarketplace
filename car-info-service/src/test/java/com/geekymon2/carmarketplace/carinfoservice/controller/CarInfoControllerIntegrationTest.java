@@ -17,8 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @SpringBootTest
@@ -34,18 +35,18 @@ public class CarInfoControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("Test get car make by id.")
-    void testGetCarMakeById() {
-        CarMakeDto actual = controller.getCarMakeById(1L);
-        CarMakeDto expected = new CarMakeDto(1L, "FORD", "USA");
-        assertThat(expected.equals(actual)).isTrue();
-    }
-
-    @Test
     @DisplayName("Test get all car makes.")
     void testGetCarMakes() {
         List<CarMakeDto> actual = controller.getCarMakes();
         List<CarMakeDto> expected = generateValidMakeData();
+        assertThat(expected.equals(actual)).isTrue();
+    }
+
+    @Test
+    @DisplayName("Test get car make by id.")
+    void testGetCarMakeById() {
+        CarMakeDto actual = controller.getCarMakeById(1L);
+        CarMakeDto expected = new CarMakeDto(1L, "FORD", "USA");
         assertThat(expected.equals(actual)).isTrue();
     }
 
@@ -74,22 +75,17 @@ public class CarInfoControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("Test get car model by id.")
-    void testGetCarModelById() {
-        CarModelDto actual = controller.getCarModelById(5L);
-        CarModelDto expected = new CarModelDto(5L, "Audi A4 Sedan", "SEDAN");
-        assertThat(expected.equals(actual)).isTrue();
-    }
-
-    @Test
     @DisplayName("Test get car models filter on make and type.")
     void testGetCarModelsByMakeAndType() {
         List<CarModelDto> actual = controller.getCarModelsByMakeAndType("FORD", "SUV");
-
         List<CarModelDto>  expected = new ArrayList<>();
         expected.add(new CarModelDto(4L, "Ford Puma", "SUV"));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModels should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelDtoEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -103,7 +99,11 @@ public class CarInfoControllerIntegrationTest {
         expected.add(new CarModelDto(3L, "Ford Focus Hatch", "HATCHBACK"));
         expected.add(new CarModelDto(4L, "Ford Puma", "SUV"));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModels should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelDtoEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -114,13 +114,26 @@ public class CarInfoControllerIntegrationTest {
         List<CarModelDto>  expected = new ArrayList<>();
         expected.add(new CarModelDto(1L, "Ford Falcon", "SEDAN"));
         expected.add(new CarModelDto(2L, "Ford Focus Sedan", "SEDAN"));
-
         expected.add(new CarModelDto(5L, "Audi A4 Sedan", "SEDAN"));
         expected.add(new CarModelDto(6L, "Audi S4 Sedan", "SEDAN"));
         expected.add(new CarModelDto(7L, "Audi A6 Sedan", "SEDAN"));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModels should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelDtoEqual(expected.get(i), actual.get(i)));
+        }
     }
+
+    @Test
+    @DisplayName("Test get car model by id.")
+    void testGetCarModelById() {
+        CarModelDto actual = controller.getCarModelById(5L);
+        CarModelDto expected = new CarModelDto(5L, "Audi A4 Sedan", "SEDAN");
+        assertTrue(isModelDtoEqual(expected, actual));
+    }
+
+
 
     //* This needs to match the make data in data.sql for the integration tests to be successful.
     private List<CarMakeDto> generateValidMakeData() {
@@ -144,5 +157,11 @@ public class CarInfoControllerIntegrationTest {
         models.add(new CarModelDto(7L, "Audi A6 Sedan", "SEDAN"));
         models.add(new CarModelDto(8L, "Audi Q2", "SUV"));
         return models;
+    }
+
+    private Boolean isModelDtoEqual(CarModelDto actual, CarModelDto expected) {
+        return ((actual.getName().equals(expected.getName())) &&
+                (actual.getId().equals(expected.getId())) &&
+                (actual.getType().equals(expected.getType())));
     }
 }
