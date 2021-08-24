@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
@@ -49,7 +48,11 @@ public class CarInfoServiceImplIntegrationTest {
 
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateValidMakeData();
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarMake should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isMakeEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -57,7 +60,11 @@ public class CarInfoServiceImplIntegrationTest {
     void getAllCarMakesInValidTest() {
         List<CarMake> actual = impl.getAllCarMakes();
         List<CarMake> expected = generateInValidMakeData();
-        assertThat(expected.equals(actual)).isFalse();
+        assertEquals(actual.size(), expected.size(), "count of CarMakes should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertFalse(isMakeEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -65,7 +72,7 @@ public class CarInfoServiceImplIntegrationTest {
     void getCarMakeByIdValidTest() {
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(1L, "FORD", "USA");
-        assertThat(expected.equals(actual)).isTrue();
+        assertTrue(isMakeEqual(expected, actual));
     }
 
     @Test
@@ -73,7 +80,7 @@ public class CarInfoServiceImplIntegrationTest {
     void getCarMakeByIdInValidTest() {
         CarMake actual = impl.getCarMakeById(1L);
         CarMake expected = new CarMake(99L, "XXX", "XXX");
-        assertThat(expected.equals(actual)).isFalse();
+        assertFalse(isMakeEqual(expected, actual));
     }
 
     @Test
@@ -87,7 +94,11 @@ public class CarInfoServiceImplIntegrationTest {
         expected.add(new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, ford));
         expected.add(new CarModel(2L, "Ford Focus Sedan", CarModelType.SEDAN, ford));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModel should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -105,7 +116,11 @@ public class CarInfoServiceImplIntegrationTest {
         expected.add(new CarModel(6L, "Audi S4 Sedan", CarModelType.SEDAN, audi));
         expected.add(new CarModel(7L, "Audi A6 Sedan", CarModelType.SEDAN, audi));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModel should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -121,7 +136,11 @@ public class CarInfoServiceImplIntegrationTest {
         expected.add(new CarModel(7L, "Audi A6 Sedan", CarModelType.SEDAN, audi));
         expected.add(new CarModel(8L, "Audi Q2", CarModelType.SUV, audi));
 
-        assertThat(expected.equals(actual)).isTrue();
+        assertEquals(actual.size(), expected.size(), "count of CarModel should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -129,7 +148,12 @@ public class CarInfoServiceImplIntegrationTest {
     void getAllCarModelsValidTest() {
         List<CarModel> actual = impl.getAllCarModels();
         List<CarModel> expected = generateValidModelsData();
-        assertThat(expected.equals(actual)).isTrue();
+
+        assertEquals(actual.size(), expected.size(), "count of CarModel should match.");
+        for (int i=0; i<expected.size();i++)
+        {
+            assertTrue(isModelEqual(expected.get(i), actual.get(i)));
+        }
     }
 
     @Test
@@ -137,7 +161,7 @@ public class CarInfoServiceImplIntegrationTest {
     void getCarModelByIdValidTest() {
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, new CarMake(1L, "FORD", "USA"));
-        assertThat(expected.equals(actual)).isTrue();
+        assertTrue(isModelEqual(expected, actual));
     }
 
     @Test
@@ -145,7 +169,7 @@ public class CarInfoServiceImplIntegrationTest {
     void getCarModelByIdInValidTest() {
         CarModel actual = impl.getCarModelById(1L);
         CarModel expected = new CarModel(999L, "XXX", CarModelType.UTE, new CarMake(999L, "XXX", "XXX"));
-        assertThat(expected.equals(actual)).isFalse();
+        assertFalse(isModelEqual(expected, actual));
     }
 
     @Test
@@ -197,5 +221,18 @@ public class CarInfoServiceImplIntegrationTest {
         makes.add(new CarMake(1L,"XXX","XXX"));
         makes.add(new CarMake(2L,"YYY","YYY"));
         return makes;
+    }
+
+    private Boolean isMakeEqual(CarMake actual, CarMake expected) {
+        return ((actual.getName().equals(expected.getName())) &&
+                (actual.getId().equals(expected.getId())) &&
+                (actual.getCountry().equals(expected.getCountry())));
+    }
+
+    private Boolean isModelEqual(CarModel actual, CarModel expected) {
+        return ((actual.getName().equals(expected.getName())) &&
+                (actual.getId().equals(expected.getId())) &&
+                (actual.getType().equals(expected.getType())) &&
+                (isMakeEqual(actual.getMake(), expected.getMake())));
     }
 }
