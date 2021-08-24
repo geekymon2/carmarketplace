@@ -1,5 +1,6 @@
 package com.geekymon2.carmarketplace.carinfoservice.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import javax.persistence.OneToMany;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "make")
 public class CarMake {
 

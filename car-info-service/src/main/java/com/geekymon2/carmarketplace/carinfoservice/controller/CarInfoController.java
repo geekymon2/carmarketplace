@@ -65,7 +65,7 @@ public class CarInfoController {
     private CarModelDto modelToDto(CarModel model) {
         CarModelDto dto = mapper.map(model, CarModelDto.class);
         dto.setId(model.getId());
-        dto.setType(model.getModelType().toString());
+        dto.setType(model.getType().toString());
         return dto;
     }    
 }

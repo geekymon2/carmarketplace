@@ -84,8 +84,8 @@ public class CarInfoServiceImplIntegrationTest {
 
         CarMake ford = new CarMake(1L,"FORD","USA");
 
-        expected.add(new CarModel(1L, "Ford Falcon", ford, CarModelType.SEDAN));
-        expected.add(new CarModel(2L, "Ford Focus Sedan", ford, CarModelType.SEDAN));
+        expected.add(new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, ford));
+        expected.add(new CarModel(2L, "Ford Focus Sedan", CarModelType.SEDAN, ford));
 
         assertThat(expected.equals(actual)).isTrue();
     }
@@ -99,11 +99,11 @@ public class CarInfoServiceImplIntegrationTest {
         CarMake ford = new CarMake(1L,"FORD","USA");
         CarMake audi = new CarMake(2L,"AUDI","Germany");
 
-        expected.add(new CarModel(1L, "Ford Falcon", ford, CarModelType.SEDAN));
-        expected.add(new CarModel(2L, "Ford Focus Sedan", ford, CarModelType.SEDAN));
-        expected.add(new CarModel(5L, "Audi A4 Sedan", audi, CarModelType.SEDAN));
-        expected.add(new CarModel(6L, "Audi S4 Sedan", audi, CarModelType.SEDAN));
-        expected.add(new CarModel(7L, "Audi A6 Sedan", audi, CarModelType.SEDAN));
+        expected.add(new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, ford));
+        expected.add(new CarModel(2L, "Ford Focus Sedan", CarModelType.SEDAN, ford));
+        expected.add(new CarModel(5L, "Audi A4 Sedan", CarModelType.SEDAN, audi));
+        expected.add(new CarModel(6L, "Audi S4 Sedan", CarModelType.SEDAN, audi));
+        expected.add(new CarModel(7L, "Audi A6 Sedan", CarModelType.SEDAN, audi));
 
         assertThat(expected.equals(actual)).isTrue();
     }
@@ -114,12 +114,12 @@ public class CarInfoServiceImplIntegrationTest {
         List<CarModel> actual = impl.getCarModels("AUDI", null);
         List<CarModel>  expected = new ArrayList<>();
 
-        CarMake audi = new CarMake(1L,"AUDI","Germany");
+        CarMake audi = new CarMake(2L,"AUDI","Germany");
 
-        expected.add(new CarModel(5L, "Audi A4 Sedan", audi, CarModelType.SEDAN));
-        expected.add(new CarModel(6L, "Audi S4 Sedan", audi, CarModelType.SEDAN));
-        expected.add(new CarModel(7L, "Audi A6 Sedan", audi, CarModelType.SEDAN));
-        expected.add(new CarModel(8L, "Audi Q2", audi, CarModelType.SUV));
+        expected.add(new CarModel(5L, "Audi A4 Sedan", CarModelType.SEDAN, audi));
+        expected.add(new CarModel(6L, "Audi S4 Sedan", CarModelType.SEDAN, audi));
+        expected.add(new CarModel(7L, "Audi A6 Sedan", CarModelType.SEDAN, audi));
+        expected.add(new CarModel(8L, "Audi Q2", CarModelType.SUV, audi));
 
         assertThat(expected.equals(actual)).isTrue();
     }
@@ -136,7 +136,7 @@ public class CarInfoServiceImplIntegrationTest {
     @DisplayName("Test valid car model by id.")
     void getCarModelByIdValidTest() {
         CarModel actual = impl.getCarModelById(1L);
-        CarModel expected = new CarModel(1L, "Ford Falcon", new CarMake(1L, "FORD", "USA"), CarModelType.SEDAN);
+        CarModel expected = new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, new CarMake(1L, "FORD", "USA"));
         assertThat(expected.equals(actual)).isTrue();
     }
 
@@ -144,7 +144,7 @@ public class CarInfoServiceImplIntegrationTest {
     @DisplayName("Test invalid car model by id.")
     void getCarModelByIdInValidTest() {
         CarModel actual = impl.getCarModelById(1L);
-        CarModel expected = new CarModel(999L, "XXX", new CarMake(999L, "XXX", "XXX"), CarModelType.UTE);
+        CarModel expected = new CarModel(999L, "XXX", CarModelType.UTE, new CarMake(999L, "XXX", "XXX"));
         assertThat(expected.equals(actual)).isFalse();
     }
 
@@ -178,15 +178,15 @@ public class CarInfoServiceImplIntegrationTest {
         CarMake ford = new CarMake(1L,"FORD","USA");
         CarMake audi = new CarMake(2L,"AUDI","Germany");
 
-        models.add(new CarModel(1L, "Ford Falcon", ford, CarModelType.SEDAN));
-        models.add(new CarModel(2L, "Ford Focus Sedan", ford, CarModelType.SEDAN));
-        models.add(new CarModel(3L, "Ford Focus Hatch", ford, CarModelType.HATCHBACK));
-        models.add(new CarModel(4L, "Ford Puma", ford, CarModelType.SUV));
+        models.add(new CarModel(1L, "Ford Falcon", CarModelType.SEDAN, ford));
+        models.add(new CarModel(2L, "Ford Focus Sedan", CarModelType.SEDAN, ford));
+        models.add(new CarModel(3L, "Ford Focus Hatch", CarModelType.HATCHBACK, ford));
+        models.add(new CarModel(4L, "Ford Puma", CarModelType.SUV, ford));
 
-        models.add(new CarModel(5L, "Audi A4 Sedan", audi, CarModelType.SEDAN));
-        models.add(new CarModel(6L, "Audi S4 Sedan", audi, CarModelType.SEDAN));
-        models.add(new CarModel(7L, "Audi A6 Sedan", audi, CarModelType.SEDAN));
-        models.add(new CarModel(8L, "Audi Q2", audi, CarModelType.SUV));
+        models.add(new CarModel(5L, "Audi A4 Sedan", CarModelType.SEDAN, audi));
+        models.add(new CarModel(6L, "Audi S4 Sedan", CarModelType.SEDAN, audi));
+        models.add(new CarModel(7L, "Audi A6 Sedan", CarModelType.SEDAN, audi));
+        models.add(new CarModel(8L, "Audi Q2", CarModelType.SUV, audi));
 
         return models;
     }
