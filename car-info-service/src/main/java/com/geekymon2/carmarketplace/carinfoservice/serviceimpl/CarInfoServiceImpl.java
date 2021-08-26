@@ -1,16 +1,17 @@
 package com.geekymon2.carmarketplace.carinfoservice.serviceimpl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
+import com.geekymon2.carmarketplace.carinfoservice.exception.InvalidParameterException;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarModelRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarInfoServiceImpl implements CarInfoService {
@@ -39,18 +40,17 @@ public class CarInfoServiceImpl implements CarInfoService {
 
     @Override
     public List<CarModel> getCarModels(String makeName, String typeName) {
-        CarMake make = (makeName != null) ? carMakeRepository.findOneByName(makeName): null;
-        CarModelType type = (typeName != null) ? CarModelType.valueOf(typeName) : null;
-
-        return carModelRepository.findByMakeIdAndType((make != null) ? make.getId() : null, type);
+        CarMake make = validateMake(makeName);
+        CarModelType type = validateType(typeName);
+        if (make == null && type == null) {
+            List<CarModel> models = new ArrayList<>();
+            carModelRepository.findAll().forEach(models::add);
+            return models;
+        }
+        else {
+            return carModelRepository.findByMakeIdAndType((make != null) ? make.getId() : null, type);
+        }
     }
-
-    @Override
-    public List<CarModel> getAllCarModels() {
-        List<CarModel> models = new ArrayList<>();
-        carModelRepository.findAll().forEach(models::add); 
-        return models;
-    }    
 
     @Override
     public CarModel getCarModelById(long id) {
@@ -64,5 +64,34 @@ public class CarInfoServiceImpl implements CarInfoService {
         return carMakeRepository.count();
     }
 
+    private CarMake validateMake(String makeName) {
+        CarMake make;
 
+        if (makeName == null || makeName.isBlank()) {
+            return null;
+        }
+        else {
+            make = carMakeRepository.findOneByName(makeName);
+            if (make == null) {
+                throw new InvalidParameterException(String.format("Invalid make '%s'", makeName));
+            }
+            return make;
+        }
+    }
+
+    private CarModelType validateType(String typeName) {
+        CarModelType type;
+
+        if (typeName == null || typeName.isBlank()) {
+            return null;
+        }
+        else {
+            try {
+                type = CarModelType.valueOf(typeName);
+            } catch(IllegalArgumentException ex) {
+                throw new InvalidParameterException(String.format("type '%s' not found", typeName));
+            }
+            return type;
+        }
+    }
 }

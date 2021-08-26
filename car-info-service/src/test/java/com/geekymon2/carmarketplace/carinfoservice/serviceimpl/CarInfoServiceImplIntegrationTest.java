@@ -147,7 +147,7 @@ public class CarInfoServiceImplIntegrationTest {
     @Test
     @DisplayName("Test all valid car models.")
     void getAllCarModelsValidTest() {
-        List<CarModel> actual = impl.getAllCarModels();
+        List<CarModel> actual = impl.getCarModels(null, null);
         List<CarModel> expected = generateValidModelsData();
 
         assertEquals(actual.size(), expected.size(), "count of CarModel should match.");

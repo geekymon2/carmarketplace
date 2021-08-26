@@ -45,12 +45,7 @@ public class CarInfoController {
 
     @GetMapping(value = "/models")
     public List<CarModelDto> getCarModelsByMakeAndType(String make, String type) {
-        if (make != null || type != null) {
-            return service.getCarModels(make, type).stream().map(this::modelToDto).collect(Collectors.toList());
-        }
-        else {
-            return service.getAllCarModels().stream().map(this::modelToDto).collect(Collectors.toList());
-        }
+        return service.getCarModels(make, type).stream().map(this::modelToDto).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/models/{id}")
