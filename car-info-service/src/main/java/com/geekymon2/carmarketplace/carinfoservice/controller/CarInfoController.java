@@ -2,6 +2,7 @@ package com.geekymon2.carmarketplace.carinfoservice.controller;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
@@ -51,6 +52,16 @@ public class CarInfoController {
     @GetMapping(value = "/models/{id}")
     public CarModelDto getCarModelById(@PathVariable("id") long id) {
         return modelToDto(service.getCarModelById(id));
+    }
+
+    @GetMapping(value = "/models/count")
+    public ResponseEntity<Long> getCarModelsCount() {
+        return ResponseEntity.status(HttpStatus.OK).body(service.getCarModelsCount());
+    }
+
+    @GetMapping(value = "/types")
+    public List<CarModelType> getCarModelTypes() {
+        return service.getCarModelTypes();
     }
 
     private CarMakeDto makeToDto(CarMake make) {

@@ -1,8 +1,10 @@
 package com.geekymon2.carmarketplace.carinfoservice.serviceimpl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
@@ -74,6 +76,16 @@ public class CarInfoServiceImpl implements CarInfoService {
     @Override
     public long getCarMakesCount() {
         return carMakeRepository.count();
+    }
+
+    @Override
+    public long getCarModelsCount() {
+        return carModelRepository.count();
+    }
+
+    @Override
+    public List<CarModelType> getCarModelTypes() {
+        return Arrays.stream(CarModelType.values()).collect(Collectors.toList());
     }
 
     private CarMake validateMake(String makeName) {

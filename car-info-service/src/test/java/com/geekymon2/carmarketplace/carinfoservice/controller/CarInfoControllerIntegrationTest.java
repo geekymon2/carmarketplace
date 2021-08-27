@@ -198,4 +198,12 @@ public class CarInfoControllerIntegrationTest {
                 (actual.getId().equals(expected.getId())) &&
                 (actual.getType().equals(expected.getType())));
     }
+
+    @Test
+    void getCarModelsCount() {
+    }
+
+    @Test
+    void getCarModelTypes() {
+    }
 }
