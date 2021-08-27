@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import lombok.Generated;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @ControllerAdvice
@@ -27,8 +29,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
     {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        details.add("testing");
-        ErrorResponseDto error = new ErrorResponseDto(INCORRECT_REQUEST, details);
+        ErrorResponseDto error = new ErrorResponseDto(new Date(), HttpStatus.NOT_FOUND.value(), INCORRECT_REQUEST, details, ((ServletWebRequest)request).getRequest().getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
@@ -38,7 +39,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
                         (MissingHeaderInfoException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        ErrorResponseDto error = new ErrorResponseDto(BAD_REQUEST, details);
+        ErrorResponseDto error = new ErrorResponseDto(new Date(), HttpStatus.BAD_REQUEST.value(), BAD_REQUEST, details, ((ServletWebRequest)request).getRequest().getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
@@ -48,7 +49,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
             (InvalidParameterException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        ErrorResponseDto error = new ErrorResponseDto(INVALID_PARAM, details);
+        ErrorResponseDto error = new ErrorResponseDto(new Date(), HttpStatus.BAD_REQUEST.value(), INVALID_PARAM, details, ((ServletWebRequest)request).getRequest().getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 }

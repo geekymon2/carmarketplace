@@ -13,6 +13,6 @@ public class RecordNotFoundException extends RuntimeException
  
     public RecordNotFoundException(String message) {
         super(message);
-        log.error(message);
+        log.error(this.getClass().getName() + ": " + message);
     }
 }
