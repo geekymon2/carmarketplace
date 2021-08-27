@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import lombok.Generated;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,16 +20,19 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
     private String BAD_REQUEST = "BAD_REQUEST";
     private String INVALID_PARAM = "INVALID_PARAMETER";
 
+    @Generated
     @ExceptionHandler(RecordNotFoundException.class)
     public final ResponseEntity<ErrorResponseDto> handleRecordNotFoundException
                         (RecordNotFoundException ex, WebRequest request) 
     {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
+        details.add("testing");
         ErrorResponseDto error = new ErrorResponseDto(INCORRECT_REQUEST, details);
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
-     
+
+    @Generated     
     @ExceptionHandler(MissingHeaderInfoException.class)
     public final ResponseEntity<ErrorResponseDto> handleInvalidTraceIdException
                         (MissingHeaderInfoException ex, WebRequest request) {
@@ -37,6 +42,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @Generated
     @ExceptionHandler(InvalidParameterException.class)
     public final ResponseEntity<ErrorResponseDto> handleInvalidParameterException
             (InvalidParameterException ex, WebRequest request) {

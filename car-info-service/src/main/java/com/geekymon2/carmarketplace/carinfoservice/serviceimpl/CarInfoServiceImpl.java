@@ -1,17 +1,19 @@
 package com.geekymon2.carmarketplace.carinfoservice.serviceimpl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarMake;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModel;
 import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
 import com.geekymon2.carmarketplace.carinfoservice.exception.InvalidParameterException;
+import com.geekymon2.carmarketplace.carinfoservice.exception.RecordNotFoundException;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarMakeRepository;
 import com.geekymon2.carmarketplace.carinfoservice.repository.CarModelRepository;
 import com.geekymon2.carmarketplace.carinfoservice.service.CarInfoService;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CarInfoServiceImpl implements CarInfoService {
@@ -35,6 +37,11 @@ public class CarInfoServiceImpl implements CarInfoService {
     public CarMake getCarMakeById(long id) {
         Optional<CarMake> make;
         make  = carMakeRepository.findById(id);
+
+        if (make.isEmpty()) {
+            throw new RecordNotFoundException(String.format("Make with id '%d' not found", id));
+        }
+
         return make.get();
     }
 
@@ -56,6 +63,11 @@ public class CarInfoServiceImpl implements CarInfoService {
     public CarModel getCarModelById(long id) {
         Optional<CarModel> model;
         model  = carModelRepository.findById(id);
+
+        if (model.isEmpty()) {
+            throw new RecordNotFoundException(String.format("Make with id '%d' not found", id));
+        }
+
         return model.get();
     }
 

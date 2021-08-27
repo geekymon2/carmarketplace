@@ -1,5 +1,7 @@
 package com.geekymon2.carmarketplace.carinfoservice.controller;
 
+import com.geekymon2.carmarketplace.carinfoservice.exception.InvalidParameterException;
+import com.geekymon2.carmarketplace.carinfoservice.exception.RecordNotFoundException;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
@@ -20,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
@@ -87,6 +89,38 @@ public class CarInfoControllerIntegrationTest {
             assertTrue(isModelDtoEqual(expected.get(i), actual.get(i)));
         }
     }
+
+    @Test
+    @DisplayName("Test get car models filter on invalid make.")
+    void testGetCarModelsByInvalidMake() {
+        assertThrows(InvalidParameterException.class, () -> {
+            controller.getCarModelsByMakeAndType("XXXX", null);
+        });
+    }    
+
+    @Test
+    @DisplayName("Test get car models filter on invalid type.")
+    void testGetCarModelsByInvalidType() {
+        assertThrows(InvalidParameterException.class, () -> {
+            controller.getCarModelsByMakeAndType("FORD", "XXXX");
+        });
+    }
+
+    @Test
+    @DisplayName("Test get car make filter on invalid id.")
+    void testGetCarMakeByInvalidID() {
+        assertThrows(RecordNotFoundException.class, () -> {
+            controller.getCarMakeById(99999999L);
+        });
+    }    
+
+    @Test
+    @DisplayName("Test get car model filter on invalid id.")
+    void testGetCarModelByInvalidID() {
+        assertThrows(RecordNotFoundException.class, () -> {
+            controller.getCarModelById(99999999L);
+        });
+    } 
 
     @Test
     @DisplayName("Test get car models filter on make.")
