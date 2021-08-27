@@ -1,10 +1,23 @@
 package com.geekymon2.carmarketplace.carinfoservice.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.geekymon2.carmarketplace.carinfoservice.entities.CarModelType;
 import com.geekymon2.carmarketplace.carinfoservice.exception.InvalidParameterException;
 import com.geekymon2.carmarketplace.carinfoservice.exception.RecordNotFoundException;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarMakeDto;
 import com.geekymon2.carmarketplace.carinfoservice.models.CarModelDto;
 import com.geekymon2.carmarketplace.carinfoservice.serviceimpl.CarInfoServiceImpl;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
@@ -14,15 +27,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @AutoConfigureTestDatabase
@@ -65,6 +69,14 @@ public class CarInfoControllerIntegrationTest {
     void getCarMakesCountValidTest() {
         ResponseEntity<Long> actual = controller.getCarMakesCount();
         ResponseEntity<Long> expected = ResponseEntity.ok(2L);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Test valid car models count.")
+    void getCarModelsCountValidTest() {
+        ResponseEntity<Long> actual = controller.getCarModelsCount();
+        ResponseEntity<Long> expected = ResponseEntity.ok(8L);
         assertEquals(expected, actual);
     }
 
@@ -166,6 +178,14 @@ public class CarInfoControllerIntegrationTest {
         CarModelDto expected = new CarModelDto(5L, "Audi A4 Sedan", "SEDAN");
         assertTrue(isModelDtoEqual(expected, actual));
     }
+
+    @Test
+    @DisplayName("Test valid car model types.")
+    void getCarModelTypesTest() {
+        List<CarModelType> actual = controller.getCarModelTypes();
+        List<CarModelType> expected = Arrays.stream(CarModelType.values()).collect(Collectors.toList());
+        assertEquals(expected, actual);
+    }    
 
 
 
