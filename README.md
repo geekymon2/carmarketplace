@@ -4,17 +4,21 @@
 
 * Car Orchestrator
 * Car Info Services
-    - Provides a read only store of various car makes and models, connects to the database to fetch the car makes and models information
+    - Provides a read only store of various car makes, models, and types, connects to the database to fetch the car makes and models information
 * Car Listing Service
+    - Provides a listing of cars as well as the CRUD operations to add, update, delete car listings.
 * Image Store Service
+    - Service to manage car photos
 
 ## Technologies Used
 * Spring Boot
 * Spring Cloud
 * JUnit 5
-* SpringFox Swagger2 3.0
-* Model Mapper 2.4
+* SpringFox Swagger2
+* Model Mapper
 * Java 11
+* Lombok
+* Jacoco Code Coverage
 
 ## Features
 * H2 database for running in test profile for execution of integration testing
