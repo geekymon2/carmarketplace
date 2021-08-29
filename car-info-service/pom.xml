@@ -12,6 +12,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>car-info-service</name>
 	<description>Car Info Service</description>
+	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -81,11 +82,22 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>car-info-service</finalName>	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring-boot.version}</version>
+				<configuration>
+					<mainClass>com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+			   </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
