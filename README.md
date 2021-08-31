@@ -1,5 +1,8 @@
 # Car Marketplace Microservices App
 
+[![Build carmarketplace services](https://github.com/geekymon2/carmarketplace/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace/actions/workflows/build.yml)
+
+
 ## This Application contains the following microservices.
 
 * Car Orchestrator
