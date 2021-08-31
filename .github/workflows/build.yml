@@ -21,8 +21,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-        cache: maven
+        cache: maven  
     - name: Build with Maven
       run: |
-        mvn -N install --file pom.xml
-        mvn -B package --file pom.xml
+        mvn -N install --file pom.xml -DSPRING_PROFILES_ACTIVE=test
+        mvn -B package --file pom.xml -DSPRING_PROFILES_ACTIVE=test
