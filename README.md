@@ -1,7 +1,6 @@
-# Car Marketplace Microservices App
+# Car Marketplace
 
-[![Build carmarketplace services](https://github.com/geekymon2/carmarketplace/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace/actions/workflows/build.yml)
-
+Microservices App for Car Marketplace
 
 ## List of Related Repos
 
