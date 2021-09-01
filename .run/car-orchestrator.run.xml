@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="car-orchestrator" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carorchestrator.CarOrchestratorApplication" />
-    <module name="car-orchestrator" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>

@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="car-listing-service" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication" />
-    <module name="car-listing-service" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>
