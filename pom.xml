@@ -89,14 +89,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <modules>
-        <module>discovery-server</module>
-        <module>config-server</module>
-        <module>car-listing-service</module>
-        <module>car-info-service</module>
-        <module>imagestore-service</module>
-        <module>car-orchestrator</module>
-    </modules>
     <build>
         <pluginManagement>
             <plugins>

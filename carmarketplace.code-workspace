@@ -5,6 +5,24 @@
 		},
 		{
 			"path": "../carmarketplace-config"
+		},
+		{
+			"path": "../carmarketplace-car-info-svc"
+		},
+		{
+			"path": "../carmarketplace-discovery-server"
+		},
+		{
+			"path": "../carmarketplace-config-server"
+		},
+		{
+			"path": "../carmarketplace-car-listing-svc"
+		},
+		{
+			"path": "../carmarketplace-car-orch-svc"
+		},
+		{
+			"path": "../carmarketplace-imgstore-svc"
 		}
 	],
 	"settings": {
