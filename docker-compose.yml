@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  dozzle:
+    environment: 
+      #username, password and key environment variables adds basic auth to dozzle ui
+      #overriden by environment variables
+      - DOZZLE_USERNAME=${DOZZLE_USERNAME:-user}
+      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD:-password}
+      - DOZZLE_KEY=${DOZZLE_KEY:-key}
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    #local setup
+    #dozzle container runs on port 8080
+    #dozzle container exposing port 88
+    #dozzle container overrides DOZZLE_PORT and DOZZLE_PORT_CONTAINER when deployed      
+    ports:
+      - ${DOZZLE_PORT:-88}:${DOZZLE_PORT_CONTAINER:-8080}
