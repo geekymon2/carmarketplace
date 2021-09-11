@@ -17,3 +17,60 @@ services:
     #dozzle container overrides DOZZLE_PORT and DOZZLE_PORT_CONTAINER when deployed      
     ports:
       - ${DOZZLE_PORT:-88}:${DOZZLE_PORT_CONTAINER:-8080}
+  cm-car-info-svc-web: 
+    restart: always
+    image: "geekymon2/cm-car-info-svc"
+    environment: 
+      ARTIFACT_NAME: "car-info-service"
+      SPRING_PROFILES_ACTIVE: "${SPRING_PROFILES_ACTIVE}"
+      ENVIRONMENT: "${ENVIRONMENT}"
+    #local setup
+    #container runs on port 8080
+    #container exposing port 8880
+    #container overrides APP_PORT and APP_PORT_CONTAINER when deployed
+    ports:
+      - "${APP_PORT:-8880}:${APP_PORT_CONTAINER:-8080}"
+    depends_on: 
+      - cm-car-info-svc-db
+  cm-car-info-svc-db:
+    hostname: "db"
+    restart: always
+    image: mysql:8.0
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-P@ssw0rd}"
+      MYSQL_DATABASE: "${DB_NAME:-carinfodbdev}"
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: ${DB_ROOT_PASSWORD:-P@ssw0rd}
+  cm-discovery-server: 
+    hostname: "discovery-sever"
+    restart: always
+    image: "geekymon2/cm-discovery-server"
+    environment: 
+      ARTIFACT_NAME: "discovery-server"
+      SPRING_PROFILES_ACTIVE: "${SPRING_PROFILES_ACTIVE}"
+      ENVIRONMENT: "${ENVIRONMENT}"
+    #local setup
+    #container runs on port 8080
+    #container exposing port 8880
+    #container overrides APP_PORT and APP_PORT_CONTAINER when deployed
+    ports:
+      - "${APP_PORT:-8761}:${APP_PORT_CONTAINER:-8761}"
+  cm-config-server: 
+    hostname: "config-server"
+    restart: always
+    image: "geekymon2/cm-config-server"
+    environment: 
+      ARTIFACT_NAME: "config-server"
+      SPRING_PROFILES_ACTIVE: "${SPRING_PROFILES_ACTIVE}"
+      ENVIRONMENT: "${ENVIRONMENT}"
+    #local setup
+    #container runs on port 8888
+    #container exposing port 8888
+    #container overrides APP_PORT and APP_PORT_CONTAINER when deployed
+    ports:
+      - "${APP_PORT:-8888}:${APP_PORT_CONTAINER:-8888}"
+volumes:
+  db_data: {}
