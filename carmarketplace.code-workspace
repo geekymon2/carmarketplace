@@ -72,7 +72,11 @@
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication",
 				"projectName": "car-info-service",
-				"preLaunchTask": "sleep5"
+				"preLaunchTask": "sleep5",
+				"env": {
+					"ENVIRONMENT": "localhost",
+					"SPRING_PROFILES_ACTIVE": "default"
+				},
 			},
 			{
 				"type": "java",
