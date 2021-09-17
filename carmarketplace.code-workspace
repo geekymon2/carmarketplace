@@ -97,7 +97,12 @@
 				"name": "Launch ConfigServerApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.configserver.ConfigServerApplication",
-				"projectName": "config-server"
+				"projectName": "config-server",
+				"env": {
+					"ENVIRONMENT": "localhost",
+					"SPRING_PROFILES_ACTIVE": "default",
+					"CONFIG_SERVER_ENCRYPT_KEY": "localtest"
+				},
 			},
 			{
 				"type": "java",
