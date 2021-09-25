@@ -25,6 +25,7 @@ services:
     image: postgres
     networks:
       - sonarnet
+    restart: always      
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
