@@ -4,10 +4,10 @@ services:
     container_name: 1_sonarqube
     image: sonarqube
     expose:
-      - 9999
+      - 9191
     restart: always      
     ports:
-      - "127.0.0.1:9999:9000"
+      - "9191:9191"
     networks:
       - sonarnet
     environment:
