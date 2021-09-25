@@ -68,55 +68,52 @@
 		"configurations": [
 			{
 				"type": "java",
-				"name": "Launch CarInfoServiceApplication",
+				"name": "CarInfoServiceApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication",
 				"projectName": "car-info-service",
 				"preLaunchTask": "sleep5",
-				"env": {
-					"ENVIRONMENT": "localhost",
-					"SPRING_PROFILES_ACTIVE": "default"
-				},
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"	
 			},
 			{
 				"type": "java",
-				"name": "Launch CarListingServiceApplication",
+				"name": "CarListingServiceApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication",
 				"projectName": "car-listing-service",
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"			
 			},
 			{
 				"type": "java",
-				"name": "Launch CarOrchestratorApplication",
+				"name": "CarOrchestratorApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carorchestrator.CarOrchestratorApplication",
 				"projectName": "car-orchestrator",
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"				
 			},
 			{
 				"type": "java",
-				"name": "Launch ConfigServerApplication",
+				"name": "ConfigServerApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.configserver.ConfigServerApplication",
 				"projectName": "config-server",
-				"env": {
-					"ENVIRONMENT": "localhost",
-					"SPRING_PROFILES_ACTIVE": "default",
-					"CONFIG_SERVER_ENCRYPT_KEY": "localtest"
-				},
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"
 			},
 			{
 				"type": "java",
-				"name": "Launch DiscoveryServerApplication",
+				"name": "DiscoveryServerApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.discoveryserver.DiscoveryServerApplication",
-				"projectName": "discovery-server"
+				"projectName": "discovery-server",
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"		
 			},
 			{
 				"type": "java",
-				"name": "Launch ImageStoreServiceApplication",
+				"name": "ImageStoreServiceApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carimagestoreservice.ImageStoreServiceApplication",
 				"projectName": "imagestore-service",
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"		
 			},
 			{
 				"name": "Launch Chrome",
@@ -130,7 +127,7 @@
 		"compounds": [
 			{
 				"name": "Launch All Services",
-				"configurations": ["Launch ConfigServerApplication", "Launch DiscoveryServerApplication", "Launch CarInfoServiceApplication", "Launch Chrome"]
+				"configurations": ["ConfigServerApplication", "DiscoveryServerApplication", "CarInfoServiceApplication", "Launch Chrome"]
 			}
 		]
 	},
