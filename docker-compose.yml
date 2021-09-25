@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   sonarqube:
-    container_name: sonarqube
+    container_name: 1_sonarqube
     image: sonarqube
     expose:
       - 9999
@@ -21,7 +21,7 @@ services:
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   sonardb:
-    container_name: sonardb
+    container_name: 1_sonardb
     image: postgres
     networks:
       - sonarnet
@@ -33,7 +33,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   portainer:
-    container_name: portainer
+    container_name: 1_portainer
     image: portainer/portainer
     command: -H unix:///var/run/docker.sock
     restart: always
@@ -51,7 +51,7 @@ services:
       - DOZZLE_USERNAME=${DOZZLE_USERNAME:-user}
       - DOZZLE_PASSWORD=${DOZZLE_PASSWORD:-password}
       - DOZZLE_KEY=${DOZZLE_KEY:-key}
-    container_name: dozzle
+    container_name: 1_dozzle
     image: amir20/dozzle:latest
     restart: always
     volumes:
@@ -73,4 +73,4 @@ volumes:
   postgresql_data:
 
 networks:
-  sonarnet:  
+  sonarnet:
