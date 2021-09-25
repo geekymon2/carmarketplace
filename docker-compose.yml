@@ -1,5 +1,34 @@
 version: "3.9"
 services:
+  sonarqube:
+    image: sonarqube
+    expose:
+      - 9999
+    ports:
+      - "127.0.0.1:9999:9000"
+    networks:
+      - sonarnet
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://sonardb:5432/sonar
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+
+  sonardb:
+    image: postgres
+    networks:
+      - sonarnet
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+
   portainer:
     image: portainer/portainer
     command: -H unix:///var/run/docker.sock
@@ -29,5 +58,15 @@ services:
     #dozzle container overrides DOZZLE_PORT and DOZZLE_PORT_CONTAINER when deployed      
     ports:
       - ${DOZZLE_PORT:-88}:${DOZZLE_PORT_CONTAINER:-8080}
+
 volumes:
   portainer_data: {}
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
+  postgresql:
+  postgresql_data:
+
+networks:
+  sonarnet:  
