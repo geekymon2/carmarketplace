@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="discovery-server" type="Application" factoryName="Application">
+    <envs>
+      <env name="ENVIRONMENT" value="localhost" />
+      <env name="SPRING_PROFILES_ACTIVE" value="default" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.discoveryserver.DiscoveryServerApplication" />
+    <module name="discovery-server" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="all-services" type="CompoundRunConfigurationType">
+    <toRun name="config-server" type="Application" />
+    <toRun name="discovery-server" type="Application" />
+    <toRun name="car-info-service" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>

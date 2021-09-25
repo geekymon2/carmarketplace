@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="car-info-service" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="ENVIRONMENT" value="localhost" />
+      <env name="SPRING_PROFILES_ACTIVE" value="default" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication" />
+    <module name="car-info-service" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
