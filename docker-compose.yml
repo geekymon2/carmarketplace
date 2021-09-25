@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   sonarqube:
+    container_name: sonarqube
     image: sonarqube
     expose:
       - 9999
@@ -19,6 +20,7 @@ services:
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   sonardb:
+    container_name: sonardb
     image: postgres
     networks:
       - sonarnet
@@ -30,6 +32,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   portainer:
+    container_name: portainer
     image: portainer/portainer
     command: -H unix:///var/run/docker.sock
     restart: always
