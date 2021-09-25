@@ -5,6 +5,7 @@ services:
     image: sonarqube
     expose:
       - 9999
+    restart: always      
     ports:
       - "127.0.0.1:9999:9000"
     networks:
