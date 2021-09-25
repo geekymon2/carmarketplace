@@ -1,13 +1,15 @@
 version: "3.9"
 services:
   sonarqube:
+    #this image requires the setup - sudo sysctl -w vm.max_map_count=262144
     container_name: 1_sonarqube
     image: sonarqube
     expose:
       - 9191
     restart: always      
     ports:
-      - "9191:9191"
+      - "9091:9000"
+      - "9092:9092"
     networks:
       - sonarnet
     environment:
