@@ -16,21 +16,15 @@ Microservices App for Car Marketplace
 **config-server** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-config-server/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-config-server) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-config-server) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-config-server)
 
+## Related Git Repos
 
-## List of Related Repos
-
-* Orchestrator Service - [carmarketplace-car-orch-svc](https://github.com/geekymon2/carmarketplace-car-orch-svc)
-    - API interface fro UI.
-* Car Info Services - [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc)
-    - Provides a read only store of various car makes, models, and types, connects to the database to fetch the car makes and models information
-* Car Listing Service - [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc)
-    - Provides a listing of cars as well as the CRUD operations to add, update, delete car listings.
-* Image Store Service - [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imagestore-svc)
-    - Service to manage car photos
-* Config Server - [carmarketplace-config-server](https://github.com/geekymon2/carmarketplace-config-server)
-    - Centralised Configuration Management
-* Eureka Discovery Server - [carmarketplace-discovery-server](https://github.com/geekymon2/carmarketplace-discovery-server)
-    - Discovery Server
+* [carmarketplace-car-orch-svc](https://github.com/geekymon2/carmarketplace-car-orch-svc) - Orchestration Service
+* [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc) - Car Info Services
+* [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc) - Car Listing Service
+* [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imagestore-svc) - Image Store Service
+* [carmarketplace-config-server](https://github.com/geekymon2/carmarketplace-config-server) - Config Server
+* [carmarketplace-discovery-server](https://github.com/geekymon2/carmarketplace-discovery-server) - Discovery Server
+* [carmarketplace-config](https://github.com/geekymon2/carmarketplace-config) - Configuration
 
 ## Technologies Used
 * Spring Boot
