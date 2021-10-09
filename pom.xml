@@ -24,10 +24,16 @@
         <lombok.version>1.18.20</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <carmarketplace.core.version>1.0-SNAPSHOT</carmarketplace.core.version>
         <base.context.path>/api</base.context.path>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.geekymon2.carmarketplace</groupId>
+                <artifactId>carmarketplace-core</artifactId>
+                <version>${carmarketplace.core.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -123,4 +129,7 @@
             </plugins>
         </pluginManagement>
     </build>
+    <modules>
+        <module>carmarketplace-core</module>
+    </modules>
 </project>
