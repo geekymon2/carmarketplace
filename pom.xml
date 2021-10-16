@@ -25,7 +25,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <carmarketplace.core.version>1.0-SNAPSHOT</carmarketplace.core.version>
-        <base.context.path>/api</base.context.path>
     </properties>
     <dependencyManagement>
         <dependencies>
