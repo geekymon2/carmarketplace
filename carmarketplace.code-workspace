@@ -19,10 +19,10 @@
 			"path": "../carmarketplace-car-listing-svc"
 		},
 		{
-			"path": "../carmarketplace-car-orch-svc"
+			"path": "../carmarketplace-imgstore-svc"
 		},
 		{
-			"path": "../carmarketplace-imgstore-svc"
+			"path": "../carmarketplace-apigateway"
 		}
 	],
 	"settings": {
