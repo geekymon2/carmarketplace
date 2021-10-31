@@ -74,6 +74,15 @@
 		"configurations": [
 			{
 				"type": "java",
+				"name": "Launch CarApiGatewayApplication",
+				"request": "launch",
+				"mainClass": "com.geekymon2.carmarketplace.apigateway.CarApiGatewayApplication",
+				"projectName": "car-apigateway",
+				"envFile": "${workspaceFolder:carmarketplace}/.localenv"	
+			},
+
+			{
+				"type": "java",
 				"name": "CarInfoServiceApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carinfoservice.CarInfoServiceApplication",
@@ -88,14 +97,6 @@
 				"mainClass": "com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication",
 				"projectName": "car-listing-service",
 				"envFile": "${workspaceFolder:carmarketplace}/.localenv"			
-			},
-			{
-				"type": "java",
-				"name": "CarOrchestratorApplication",
-				"request": "launch",
-				"mainClass": "com.geekymon2.carmarketplace.carorchestrator.CarOrchestratorApplication",
-				"projectName": "car-orchestrator",
-				"envFile": "${workspaceFolder:carmarketplace}/.localenv"				
 			},
 			{
 				"type": "java",
