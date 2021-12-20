@@ -16,9 +16,12 @@ Microservices App for Car Marketplace
 **config-server** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-config-server/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-config-server) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-config-server) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-config-server)
 
+**apigateway** <br/>
+[![build](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-apigateway/branch/main/graph/badge.svg?token=XTL0XCZ4JI)](https://codecov.io/gh/geekymon2/carmarketplace-apigateway) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-apigateway) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-apigateway)
+
 ## Related Git Repos
 
-* [carmarketplace-car-orch-svc](https://github.com/geekymon2/carmarketplace-car-orch-svc) - Orchestration Service
+* [carmarketplace-apigateway](https://github.com/geekymon2/carmarketplace-apigateway) - Api Gateway
 * [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc) - Car Info Services
 * [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc) - Car Listing Service
 * [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imagestore-svc) - Image Store Service
