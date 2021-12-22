@@ -71,7 +71,7 @@
 		"configurations": [
 			{
 				"type": "java",
-				"name": "Launch CarApiGatewayApplication",
+				"name": "CarApiGatewayApplication",
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.apigateway.CarApiGatewayApplication",
 				"projectName": "car-apigateway",
@@ -123,6 +123,7 @@
 				"name": "Launch Chrome",
 				"request": "launch",
 				"type": "pwa-chrome",
+				//Entrypoint should point to API Gateway
 				"url": "http://localhost:8082/api/swagger-ui/",
 				"webRoot": "$M2/Development/GeekyMon2/carmarketplace",
 				"preLaunchTask": "sleep15"
@@ -131,7 +132,7 @@
 		"compounds": [
 			{
 				"name": "Launch All Services",
-				"configurations": ["ConfigServerApplication", "DiscoveryServerApplication", "CarInfoServiceApplication", "Launch Chrome"]
+				"configurations": ["ConfigServerApplication", "DiscoveryServerApplication", "CarInfoServiceApplication", "CarApiGatewayApplication", "Launch Chrome"]
 			}
 		]
 	},
