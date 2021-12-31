@@ -124,7 +124,7 @@
 				"request": "launch",
 				"type": "pwa-chrome",
 				//Entrypoint should point to API Gateway
-				"url": "http://localhost:8008/swagger-ui/",
+				"url": "http://localhost:8008/api/swagger-ui/",
 				"webRoot": "$M2/Development/GeekyMon2/carmarketplace",
 				"preLaunchTask": "sleep15"
 			},
