@@ -75,6 +75,7 @@
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.apigateway.CarApiGatewayApplication",
 				"projectName": "car-apigateway",
+				"preLaunchTask": "sleep20",
 				"envFile": "${workspaceFolder:carmarketplace}/.localenv"	
 			},
 
@@ -93,6 +94,7 @@
 				"request": "launch",
 				"mainClass": "com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication",
 				"projectName": "car-listing-service",
+				"preLaunchTask": "sleep5",				
 				"envFile": "${workspaceFolder:carmarketplace}/.localenv"			
 			},
 			{
@@ -124,9 +126,9 @@
 				"request": "launch",
 				"type": "pwa-chrome",
 				//Entrypoint should point to API Gateway
-				"url": "http://localhost:8008/api/swagger-ui/",
+				"url": "http://localhost:8008/swagger-ui/",
 				"webRoot": "$M2/Development/GeekyMon2/carmarketplace",
-				"preLaunchTask": "sleep15"
+				"preLaunchTask": "sleep20"
 			},
 		],
 		"compounds": [
@@ -154,6 +156,11 @@
 				"type": "shell",
 				"command": "sleep 15"
 			},
+			{
+				"label": "sleep20",
+				"type": "shell",
+				"command": "sleep 20"
+			},			
 		]
 	}
 }
