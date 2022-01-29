@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Maven clean-install all modules" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="3.0">
+    <runConfiguration name="carmarketplace-clean-install" type="Maven" />
+    <runConfiguration name="discovery-server-clean-install" type="Maven" />
+    <runConfiguration name="config-server-clean-install" type="Maven" />
+    <runConfiguration name="car-info-service-clean-install" type="Maven" />
+    <runConfiguration name="car-listing-service-clean-install" type="Maven" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug all modules" type="Multirun" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="3.0">
+    <runConfiguration name="config-server" type="Application" />
+    <runConfiguration name="discovery-server" type="Application" />
+    <runConfiguration name="car-info-service" type="Application" />
+    <runConfiguration name="car-listing-service" type="Application" />
+    <runConfiguration name="car-apigateway" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
