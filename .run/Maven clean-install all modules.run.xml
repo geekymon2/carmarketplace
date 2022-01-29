@@ -5,6 +5,7 @@
     <runConfiguration name="config-server-clean-install" type="Maven" />
     <runConfiguration name="car-info-service-clean-install" type="Maven" />
     <runConfiguration name="car-listing-service-clean-install" type="Maven" />
+    <runConfiguration name="apigateway-clean-install" type="Maven" />
     <method v="2" />
   </configuration>
 </component>
