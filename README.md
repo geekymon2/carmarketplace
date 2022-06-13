@@ -45,6 +45,7 @@ Microservices App for Car Marketplace
 * Netflix Discovery service for automatic service discovery
 * Spring Cloud Config Server for centralised config
 * Swagger is included in all services
+* Aggregated Swagger Documentation
 
 ## Build
 - First build the parent pom. This is needed before others can be built.
