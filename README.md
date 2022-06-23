@@ -45,7 +45,9 @@ Microservices App for Car Marketplace
 
 ## Technologies Used
 * Spring Boot
-* Spring Cloud
+* Spring Cloud Config
+* Netflix Discovery
+* Spring Cloud Gateway
 * JUnit 5
 * SpringFox Swagger2
 * Model Mapper
@@ -53,6 +55,11 @@ Microservices App for Car Marketplace
 * Lombok
 * Jacoco Code Coverage
 * Docker
+* Docker Compose
+* Maven
+* Spring JPA
+* H2 database
+* MySQL
 
 ## Features
 * H2 database for running in test profile for execution of integration testing
