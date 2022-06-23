@@ -1,5 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="user-service" type="Application" factoryName="Application">
+    <envs>
+      <env name="ENVIRONMENT" value="localhost" />
+      <env name="SPRING_PROFILES_ACTIVE" value="default" />
+    </envs>
     <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.userservice.UserServiceApplication" />
     <module name="user-service" />
     <extension name="net.ashald.envfile">
