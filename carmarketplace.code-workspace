@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "../carmarketplace-apigateway"
+		},
+		{
+			"path": "../carmarketplace-user-svc"
 		}
 	],
 	"settings": {
