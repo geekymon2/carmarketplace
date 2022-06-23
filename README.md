@@ -52,6 +52,9 @@ Microservices App for Car Marketplace
 * Swagger is included in all services
 * Aggregated Swagger Documentation
 
+## Architecture
+TODO
+
 ## Environment Build
 * Builds are automated via GitHub Actions
 * For each service build scripts are present in .github/workflows/build.yml
@@ -60,8 +63,15 @@ Microservices App for Car Marketplace
 
 ## Environment Deployment
 * TODO
-* 
+
 ## Local Build
+* Local Environment Requirements
+  * Install and ensure MySQL database IS running.
+  * Check application.yml for connection properties
+  * Create DB Schemas for Services that need datastore.
+  * 
+  
+* Local Build Steps
 - First build the parent pom. This is needed before others can be built.
   * mvn -f pom.xml install -N
 - Build again to also build the core module. Core module is a dependency across other services.
