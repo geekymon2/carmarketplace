@@ -52,13 +52,20 @@ Microservices App for Car Marketplace
 * Swagger is included in all services
 * Aggregated Swagger Documentation
 
-## Build
+## Environment Build
+* Builds are automated via GitHub Actions
+* For each service build scripts are present in .github/workflows/build.yml
+* Build process
+  * checkout -> build -> test -> codecov -> docker image -> upload to dockerhub
+
+## Environment Deployment
+* TODO
+* 
+## Local Build
 - First build the parent pom. This is needed before others can be built.
   * mvn -f pom.xml install -N
-
 - Build again to also build the core module. Core module is a dependency across other services.
   * mvn -f pom.xml install
-
-- Now you can go and build the micro services in all other carmarketplace repos.
+- Now you can go and build all services under carmarketplace repos.
 
 ## Local Development
