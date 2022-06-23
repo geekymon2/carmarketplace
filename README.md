@@ -51,8 +51,9 @@ Microservices App for Car Marketplace
 - First build the parent pom. This is needed before others can be built.
   * mvn -f pom.xml install -N
 
-
 - Build again to also build the core module. Core module is a dependency across other services.
   * mvn -f pom.xml install
 
-- Now you can go and build the services in other repos.
+- Now you can go and build the micro services in all other carmarketplace repos.
+
+## Local Development
