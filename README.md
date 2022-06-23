@@ -4,11 +4,17 @@ Microservices App for Car Marketplace
 
 ## Status
 
+**apigateway** <br/>
+[![build](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-apigateway/branch/main/graph/badge.svg?token=XTL0XCZ4JI)](https://codecov.io/gh/geekymon2/carmarketplace-apigateway) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-apigateway) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-apigateway)
+
 **car-info-service** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-car-info-svc/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-car-info-svc/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-car-info-svc/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-car-info-svc) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-car-info-svc) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-car-info-svc)
 
 **car-listing-service** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-car-listing-svc/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-car-listing-svc/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-car-listing-svc/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-car-listing-svc) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-car-listing-svc) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-car-listing-svc)
+
+**user-service** <br/>
+[![build](https://github.com/geekymon2/carmarketplace-user-svc/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-user-svc/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-user-svc/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-user-svc) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-user-svc) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-user-svc)
 
 **discovery-server** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-discovery-server/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-discovery-server/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-discovery-server/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-discovery-server) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-discovery-server) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-discovery-server)
@@ -16,14 +22,13 @@ Microservices App for Car Marketplace
 **config-server** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-config-server/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-config-server/branch/main/graph/badge.svg?token=LH7ATDIHTB)](https://codecov.io/gh/geekymon2/carmarketplace-config-server) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-config-server) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-config-server)
 
-**apigateway** <br/>
-[![build](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-apigateway/branch/main/graph/badge.svg?token=XTL0XCZ4JI)](https://codecov.io/gh/geekymon2/carmarketplace-apigateway) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-apigateway) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-apigateway)
 
 ## Related Git Repos
 
 * [carmarketplace-apigateway](https://github.com/geekymon2/carmarketplace-apigateway) - Api Gateway
 * [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc) - Car Info Services
 * [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc) - Car Listing Service
+* [carmarketplace-user-svc](https://github.com/geekymon2/carmarketplace-user-svc) - User Service
 * [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imagestore-svc) - Image Store Service
 * [carmarketplace-config-server](https://github.com/geekymon2/carmarketplace-config-server) - Config Server
 * [carmarketplace-discovery-server](https://github.com/geekymon2/carmarketplace-discovery-server) - Discovery Server
