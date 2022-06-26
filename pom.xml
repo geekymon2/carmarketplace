@@ -22,12 +22,18 @@
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <jacoco.maven.plugin.version>0.8.7</jacoco.maven.plugin.version>
         <lombok.version>1.18.20</lombok.version>
+        <jjwt.version>0.9.1</jjwt.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <carmarketplace.core.version>1.0-SNAPSHOT</carmarketplace.core.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.geekymon2.carmarketplace</groupId>
                 <artifactId>carmarketplace-core</artifactId>

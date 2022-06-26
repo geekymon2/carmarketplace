@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run/Debug Car Marketplace" type="Multirun" singleton="false" separateTabs="true" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+  <configuration default="false" name="Run/Debug CarMarketplace" type="Multirun" singleton="true" separateTabs="true" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
     <runConfiguration name="config-server" type="Application" />
     <runConfiguration name="discovery-server" type="Application" />
+    <runConfiguration name="sleep" type="Shell Script" />
     <runConfiguration name="car-info-service" type="Application" />
     <runConfiguration name="car-listing-service" type="Application" />
     <runConfiguration name="user-service" type="Application" />
