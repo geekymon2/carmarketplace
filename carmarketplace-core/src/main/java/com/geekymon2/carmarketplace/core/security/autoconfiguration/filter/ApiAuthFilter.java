@@ -39,7 +39,7 @@ public class ApiAuthFilter extends OncePerRequestFilter {
         notFiltered = !validator.isSecured.test(request);
 
         if (notFiltered) {
-            log.warn("Request is not filtered for JWT authentication: {}", request.getRequestURI());
+            log.warn("JWT authentication request filtering bypassed for open endpoint: {}", request.getRequestURI());
         }
 
         return notFiltered;
