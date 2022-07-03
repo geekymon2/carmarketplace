@@ -17,10 +17,6 @@ import javax.annotation.PostConstruct;
 @EnableConfigurationProperties(value = ApiConfig.class)
 @Slf4j
 public class ApiAuthAutoConfig {
-
-    @Autowired
-    ApiConfig config;
-
     @PostConstruct
     public void init() {
         log.info("Initializing API Authentication Auto Configuration");
@@ -37,7 +33,9 @@ public class ApiAuthAutoConfig {
     }
 
     @Bean
-    public FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean(@Autowired JwtTokenUtil tokenUtil, @Autowired RouterValidator validator) {
+    public FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean(@Autowired JwtTokenUtil tokenUtil,
+                                                                             @Autowired ApiConfig config,
+                                                                             @Autowired RouterValidator validator) {
         FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean = new FilterRegistrationBean<>();
         ApiAuthFilter filter = new ApiAuthFilter(tokenUtil, config, validator);
 
@@ -45,5 +43,4 @@ public class ApiAuthAutoConfig {
 
         return apiAuthenticationFilterBean;
     }
-
 }

@@ -1,4 +1,4 @@
-package com.geekymon2.carmarketplace.core.exception;
+package com.geekymon2.carmarketplace.core.exception.jwt;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
