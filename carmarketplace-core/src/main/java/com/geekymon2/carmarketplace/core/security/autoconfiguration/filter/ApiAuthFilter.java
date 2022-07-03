@@ -73,7 +73,7 @@ public class ApiAuthFilter extends OncePerRequestFilter {
         }
         else {
             log.warn("Unauthenticated request: {}", request.getRequestURI());
-            log.warn("JWT Authentication is disabled. This is not intended for Production Environment.");
+            log.warn("JWT authentication is disabled. This is not intended for Production Environment.");
         }
 
         filterChain.doFilter(request, response);
