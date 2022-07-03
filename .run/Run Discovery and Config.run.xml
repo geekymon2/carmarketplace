@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Discovery and Config" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+    <runConfiguration name="config-server" type="Application" />
+    <runConfiguration name="discovery-server" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
