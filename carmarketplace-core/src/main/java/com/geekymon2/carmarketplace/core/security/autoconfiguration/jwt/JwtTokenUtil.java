@@ -3,6 +3,7 @@ package com.geekymon2.carmarketplace.core.security.autoconfiguration.jwt;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMissingException;
+import com.geekymon2.carmarketplace.core.security.autoconfiguration.properties.JwtConfig;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -14,6 +15,11 @@ import java.sql.Date;
 
 @Component
 public class JwtTokenUtil {
+    private final JwtConfig config;
+
+    public JwtTokenUtil(JwtConfig config) {
+        this.config = config;
+    }
 
     public String generateToken(String id) {
         Claims claims = Jwts.claims().setSubject(id);

@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SecurityConfig {
+public class JwtConfig {
     private Boolean jwtDisabled;
     private String jwtSecret;
-    private Integer jwtValidity;
+    private long jwtValidity;
 }

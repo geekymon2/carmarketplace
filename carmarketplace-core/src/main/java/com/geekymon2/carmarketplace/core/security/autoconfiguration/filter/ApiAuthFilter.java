@@ -48,7 +48,7 @@ public class ApiAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        if (!config.getSecurityConfig().getJwtDisabled()) {
+        if (!config.getJwtConfig().getJwtDisabled()) {
             String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
             try {
                 if (authHeader == null) {

@@ -8,5 +8,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ConfigurationProperties(prefix = "api-config")
 public class ApiConfig {
-    private SecurityConfig securityConfig;
+    private JwtConfig jwtConfig;
 }

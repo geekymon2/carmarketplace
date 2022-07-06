@@ -23,11 +23,6 @@ public class ApiAuthAutoConfig {
     }
 
     @Bean
-    public JwtTokenUtil jwtTokenUtil() {
-        return new JwtTokenUtil();
-    }
-
-    @Bean
     public RouterValidator routerValidator() {
         return new RouterValidator();
     }
