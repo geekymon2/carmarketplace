@@ -15,12 +15,17 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 @Configuration
-@EnableConfigurationProperties(value = ApiConfig.class)
+@EnableConfigurationProperties(ApiConfig.class)
 @Slf4j
 public class ApiAuthAutoConfig {
+
+    @Autowired
+    private ApiConfig apiConfig;
+
     @PostConstruct
     public void init() {
         log.info("Initializing API Authentication Auto Configuration");
+        log.info("Is JWT Authentication turned off: {}", apiConfig.getJwtConfig().getJwtDisabled());
     }
 
     @Bean
