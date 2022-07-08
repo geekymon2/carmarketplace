@@ -24,10 +24,10 @@ public class JwtTokenUtil {
     public String generateToken(String id) {
         Claims claims = Jwts.claims().setSubject(id);
         long nowMillis = System.currentTimeMillis();
-        long expMillis = nowMillis + 20 * 1000 * 60;
+        long expMillis = nowMillis + config.getJwtValidity() * 1000 * 60;
         Date exp = new Date(expMillis);
         return Jwts.builder().setClaims(claims).setIssuedAt(new Date(nowMillis)).setExpiration(exp)
-                .signWith(SignatureAlgorithm.HS512, "secret").compact();
+                .signWith(SignatureAlgorithm.HS512, config.getJwtSecret()).compact();
     }
 
     public void validateToken(final String header) throws JwtTokenMalformedException, JwtTokenMissingException {
@@ -37,7 +37,7 @@ public class JwtTokenUtil {
                 throw new JwtTokenIncorrectStructureException("Incorrect Authentication Structure");
             }
 
-            Jwts.parser().setSigningKey("secret").parseClaimsJws(parts[1]);
+            Jwts.parser().setSigningKey(config.getJwtSecret()).parseClaimsJws(parts[1]);
         } catch (MalformedJwtException ex) {
             throw new JwtTokenMalformedException("Invalid JWT token");
         } catch (ExpiredJwtException ex) {
