@@ -26,8 +26,12 @@ public class JwtTokenUtil {
         long nowMillis = System.currentTimeMillis();
         long expMillis = nowMillis + config.getJwtValidity() * 1000 * 60;
         Date exp = new Date(expMillis);
-        return Jwts.builder().setClaims(claims).setIssuedAt(new Date(nowMillis)).setExpiration(exp)
-                .signWith(SignatureAlgorithm.HS512, config.getJwtSecret()).compact();
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(new Date(nowMillis))
+                .setExpiration(exp)
+                .signWith(SignatureAlgorithm.HS512, config.getJwtSecret())
+                .compact();
     }
 
     public void validateToken(final String header) throws JwtTokenMalformedException, JwtTokenMissingException {
