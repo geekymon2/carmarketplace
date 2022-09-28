@@ -1,9 +1,9 @@
-package com.geekymon2.carmarketplace.core.security.autoconfiguration.jwt;
+package com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt;
 
+import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMissingException;
-import com.geekymon2.carmarketplace.core.security.autoconfiguration.properties.JwtConfig;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;

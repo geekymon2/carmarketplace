@@ -1,4 +1,4 @@
-package com.geekymon2.carmarketplace.core.security.autoconfiguration.validator;
+package com.geekymon2.carmarketplace.core.autoconfiguration.security.validator;
 
 import org.springframework.stereotype.Component;
 
