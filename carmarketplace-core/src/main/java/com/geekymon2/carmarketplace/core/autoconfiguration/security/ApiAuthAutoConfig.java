@@ -24,6 +24,10 @@ public class ApiAuthAutoConfig {
 
     @PostConstruct
     public void init() {
+        if (apiConfig.getJwtConfig() == null) {
+            throw new RuntimeException("Missing authentication configuration.");
+        }
+
         log.info("Initializing API Authentication Auto Configuration");
         log.info("Is JWT Authentication turned off: {}", apiConfig.getJwtConfig().getJwtDisabled());
     }

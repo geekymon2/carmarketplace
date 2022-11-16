@@ -3,6 +3,7 @@
     <envs>
       <env name="ENVIRONMENT" value="localhost" />
       <env name="SPRING_PROFILES_ACTIVE" value="default" />
+      <env name="JWT_AUTH_SECRET" value="secret" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.userservice.UserServiceApplication" />
     <module name="user-service" />
@@ -13,7 +14,7 @@
       <option name="IS_IGNORE_MISSING_FILES" value="false" />
       <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
       <ENTRIES>
-        <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
       </ENTRIES>
     </extension>
     <method v="2" />
