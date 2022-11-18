@@ -3,7 +3,7 @@ package com.geekymon2.carmarketplace.core.autoconfiguration.security.filter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt.JwtTokenUtil;
-import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.ApiConfig;
+import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.validator.RouterValidator;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
@@ -25,9 +25,9 @@ import java.util.Date;
 @Slf4j
 public class ApiAuthFilter extends OncePerRequestFilter {
     private final JwtTokenUtil tokenUtil;
-    private final ApiConfig config;
+    private final JwtConfig config;
     private final RouterValidator validator;
-    public ApiAuthFilter(JwtTokenUtil tokenUtil, ApiConfig config, RouterValidator validator) {
+    public ApiAuthFilter(JwtTokenUtil tokenUtil, JwtConfig config, RouterValidator validator) {
         this.tokenUtil = tokenUtil;
         this.config = config;
         this.validator = validator;
@@ -48,7 +48,7 @@ public class ApiAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        if (!config.getJwtConfig().getJwtDisabled()) {
+        if (!config.getJwtDisabled()) {
             String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
             try {
                 if (authHeader == null) {

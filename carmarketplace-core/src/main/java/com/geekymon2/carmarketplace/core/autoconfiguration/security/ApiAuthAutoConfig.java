@@ -1,7 +1,6 @@
 package com.geekymon2.carmarketplace.core.autoconfiguration.security;
 
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt.JwtTokenUtil;
-import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.ApiConfig;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.validator.RouterValidator;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.filter.ApiAuthFilter;
@@ -15,21 +14,21 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 @Configuration
-@EnableConfigurationProperties(ApiConfig.class)
+@EnableConfigurationProperties(JwtConfig.class)
 @Slf4j
 public class ApiAuthAutoConfig {
 
     @Autowired
-    private ApiConfig apiConfig;
+    private JwtConfig jwtConfig;
 
     @PostConstruct
     public void init() {
-        if (apiConfig.getJwtConfig() == null) {
-            throw new RuntimeException("Missing authentication configuration.");
+        if (jwtConfig.getJwtValidity() == 0 || jwtConfig.getJwtDisabled() == null || jwtConfig.getJwtSecret() == null) {
+            throw new RuntimeException("Missing JWT configuration. Please provide JWT properties in configuration file.");
         }
 
         log.info("Initializing API Authentication Auto Configuration");
-        log.info("Is JWT Authentication turned off: {}", apiConfig.getJwtConfig().getJwtDisabled());
+        log.info("Is JWT Authentication turned off: {}", jwtConfig.getJwtDisabled());
     }
 
     @Bean
@@ -49,7 +48,7 @@ public class ApiAuthAutoConfig {
 
     @Bean
     public FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean(@Autowired JwtTokenUtil tokenUtil,
-                                                                             @Autowired ApiConfig config,
+                                                                             @Autowired JwtConfig config,
                                                                              @Autowired RouterValidator validator) {
         FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean = new FilterRegistrationBean<>();
         ApiAuthFilter filter = new ApiAuthFilter(tokenUtil, config, validator);
