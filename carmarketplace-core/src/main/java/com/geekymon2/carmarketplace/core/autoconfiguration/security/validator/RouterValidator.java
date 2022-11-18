@@ -14,7 +14,8 @@ public class RouterValidator {
             "/auth/login",
             "/eureka",
             "/api-docs",
-            "/authenticate"
+            "/authenticate",
+            "/actuator/refresh"
     );
 
     public Predicate<HttpServletRequest> isSecured =
