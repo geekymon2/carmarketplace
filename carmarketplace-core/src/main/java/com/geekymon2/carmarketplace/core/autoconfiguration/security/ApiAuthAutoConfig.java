@@ -42,11 +42,6 @@ public class ApiAuthAutoConfig {
     }
 
     @Bean
-    public JwtConfig jwtConfig() {
-        return new JwtConfig();
-    }
-
-    @Bean
     public FilterRegistrationBean<ApiAuthFilter> apiAuthenticationFilterBean(@Autowired JwtTokenUtil tokenUtil,
                                                                              @Autowired JwtConfig config,
                                                                              @Autowired RouterValidator validator) {
