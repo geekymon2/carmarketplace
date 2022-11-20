@@ -3,7 +3,7 @@
     <envs>
       <env name="ENVIRONMENT" value="localhost" />
       <env name="SPRING_PROFILES_ACTIVE" value="default" />
-      <env name="JWT_AUTH_SECRET" value="secret" />
+      <env name="JWT_AUTH_SECRET" value="secretvalue" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.geekymon2.carmarketplace.carlistingservice.CarListingServiceApplication" />
     <module name="car-listing-service" />
