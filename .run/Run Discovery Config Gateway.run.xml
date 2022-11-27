@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run Discovery Config Geteway" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+  <configuration default="false" name="Run Discovery Config Gateway" type="Multirun" singleton="false" separateTabs="false" reuseTabsWithFailures="false" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
     <runConfiguration name="config-server" type="Application" />
     <runConfiguration name="discovery-server" type="Application" />
     <runConfiguration name="car-apigateway" type="Application" />
