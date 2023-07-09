@@ -2,7 +2,7 @@ package com.geekymon2.carmarketplace.core.autoconfiguration.security.validator;
 
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.function.Predicate;
 
