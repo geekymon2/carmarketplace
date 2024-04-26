@@ -4,14 +4,18 @@ import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.J
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMissingException;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.ClaimsBuilder;
 import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
+
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.sql.Date;
+
 
 @Component
 public class JwtTokenUtil {
@@ -21,16 +25,24 @@ public class JwtTokenUtil {
         this.config = config;
     }
 
+    private Key getSigningKey() {
+        byte[] keyBytes = config.getJwtSecret().getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+
     public String generateToken(String id) {
-        Claims claims = Jwts.claims().setSubject(id);
         long nowMillis = System.currentTimeMillis();
         long expMillis = nowMillis + config.getJwtValidity() * 1000 * 60;
         Date exp = new Date(expMillis);
+
+        ClaimsBuilder claimsBuilder = Jwts.claims().subject(id);
+
         return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(new Date(nowMillis))
-                .setExpiration(exp)
-                .signWith(SignatureAlgorithm.HS512, config.getJwtSecret())
+                .claims(claimsBuilder.build())
+                .subject(id)
+                .issuedAt(new Date(nowMillis))
+                .expiration(exp)
+                .signWith(getSigningKey())
                 .compact();
     }
 
@@ -41,7 +53,11 @@ public class JwtTokenUtil {
                 throw new JwtTokenIncorrectStructureException("Incorrect Authentication Structure");
             }
 
-            Jwts.parser().setSigningKey(config.getJwtSecret()).parseClaimsJws(parts[1]);
+            Jwts.parser().verifyWith(Keys.password(config.getJwtSecret().toCharArray()))
+                    .build()
+                    .parseSignedClaims(parts[1])
+                    .getPayload();
+
         } catch (MalformedJwtException ex) {
             throw new JwtTokenMalformedException("Invalid JWT token");
         } catch (ExpiredJwtException ex) {

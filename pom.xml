@@ -13,19 +13,19 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
-        <spring-cloud.version>2022.0.3</spring-cloud.version>
-        <spring-boot.version>3.1.1</spring-boot.version>
-        <springdoc.openapi.version>1.6.9</springdoc.openapi.version>
-        <modelmapper.version>2.4.2</modelmapper.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
+        <spring-boot.version>3.2.5</spring-boot.version>
+        <springdoc.openapi.version>2.5.0</springdoc.openapi.version>
+        <jjwt.version>0.12.5</jjwt.version>
+        <mysql-connector.version>8.0.33</mysql-connector.version>
+        <jakarta.xml.bind.version>4.0.2</jakarta.xml.bind.version>
+        <modelmapper.version>3.2.0</modelmapper.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <jacoco.maven.plugin.version>0.8.7</jacoco.maven.plugin.version>
         <lombok.version>1.18.20</lombok.version>
+        <carmarketplace.core.version>1.0-SNAPSHOT</carmarketplace.core.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <carmarketplace.core.version>1.0-SNAPSHOT</carmarketplace.core.version>
-        <jjwt.version>0.9.1</jjwt.version>
-        <mysql-connector.version>8.0.33</mysql-connector.version>
-        <jakarta.xml.bind.version>2.3.2</jakarta.xml.bind.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -47,7 +47,7 @@
             </dependency>
             <dependency>
                 <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
                 <version>${springdoc.openapi.version}</version>
             </dependency>
             <dependency>
@@ -88,7 +88,17 @@
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
             <dependency>
