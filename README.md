@@ -44,14 +44,15 @@ Microservices App for Car Marketplace
 * https://hub.docker.com/repository/docker/geekymon2/cm-discovery-server
 
 ## Technologies Used
-* Spring Boot
+* Spring Boot 3.x
+* Spring Cloud 2023.x
 * Spring Cloud Config
 * Netflix Discovery
 * Spring Cloud Gateway
 * JUnit 5
-* SpringFox Swagger2
+* Open API Docs
 * Model Mapper
-* Java 11
+* Java 17
 * Lombok
 * Jacoco Code Coverage
 * Docker
