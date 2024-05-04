@@ -1,0 +1,19 @@
+yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: car-info-service
+spec:
+  containers:
+    - name: cm-car-info-service
+      image: geekymon2/cm-car-info-svc:latest
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "100m"
+        limits:
+          memory: "512Mi"
+          cpu: "200m"
+      env:
+        - name: ARTIFACT_NAME
+          value: "car-info-service"

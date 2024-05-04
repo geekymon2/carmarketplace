@@ -68,7 +68,8 @@
 			"statusBarItem.remoteForeground": "#e7e7e7",
 			"commandCenter.border": "#e7e7e799"
 		},
-		"peacock.color": "#1a4328"
+		"peacock.color": "#1a4328",
+		"java.compile.nullAnalysis.mode": "disabled"
 	},
 	"launch": {
 		"version": "0.2.0",

@@ -19,3 +19,4 @@ spec:
       - image: geekymon2/cm-car-info-svc
         imagePullPolicy: Always
         name: cm-car-info-service
+      
