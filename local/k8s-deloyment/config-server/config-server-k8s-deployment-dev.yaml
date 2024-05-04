@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cm-config-server
+  name: cm-config-server
+  namespace: carmarketplace-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cm-config-server
+  template:
+    metadata:
+      labels:
+        app: cm-config-server
+    spec:
+      containers:
+      - image: geekymon2/cm-config-server
+        imagePullPolicy: Always
+        name: cm-config-server
+      

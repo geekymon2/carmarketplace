@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-server
+spec:
+  containers:
+    - name: cm-config-server
+      image: geekymon2/cm-config-server:latest
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "100m"
+        limits:
+          memory: "512Mi"
+          cpu: "200m"
+      env:
+        - name: ARTIFACT_NAME
+          value: "config-server"
+        - name: CONFIG_SERVER_ENCRYPT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: encryptkeysecret
+              key: encryptkeysecret

@@ -1,4 +1,3 @@
-yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -17,3 +16,8 @@ spec:
       env:
         - name: ARTIFACT_NAME
           value: "car-info-service"
+        - name: ENV
+          value: "local"
+        - name: DB_NAME
+          value: "carinfodbdev"
+          
