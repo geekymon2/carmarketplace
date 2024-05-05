@@ -1,0 +1,1 @@
+kubectl create secret generic encryptkeysecret --namespace carmarketplace-dev --from-literal encryptkeysecret=<value>

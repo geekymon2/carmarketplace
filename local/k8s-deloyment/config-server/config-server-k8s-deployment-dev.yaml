@@ -2,20 +2,37 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cm-config-server
-  name: cm-config-server
+    app: config-server
+  name: config-server
   namespace: carmarketplace-dev
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: cm-config-server
+      app: config-server
   template:
     metadata:
       labels:
-        app: cm-config-server
+        app: config-server
     spec:
       containers:
-      - image: geekymon2/cm-config-server
-        imagePullPolicy: Always
-        name: cm-config-server
+      - name: config-server
+        image: geekymon2/cm-config-server:latest
+        env:
+        - name: ARTIFACT_NAME
+          value: "config-server"
+        - name: SPRING_PROFILES_ACTIVE
+          value: "ci"
+        - name: TZ
+          value: "Australia/Sydney"
+        - name: CONFIG_SERVER_ENCRYPT_KEY
+          valueFrom:
+            secretKeyRef:
+              name: encryptkeysecret
+              key: encryptkeysecret
+        resources:
+          limits:
+            memory: "512256Mi"
+            cpu: "200m"
+        ports:
+          - containerPort: 8888

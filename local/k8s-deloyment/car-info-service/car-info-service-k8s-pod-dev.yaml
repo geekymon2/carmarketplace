@@ -17,7 +17,11 @@ spec:
         - name: ARTIFACT_NAME
           value: "car-info-service"
         - name: ENV
-          value: "local"
+          value: "ci"
         - name: DB_NAME
           value: "carinfodbdev"
+        - name: TZ
+          value: "Australia/Sydney"
+        - name: SPRING_PROFILES_ACTIVE
+          value: "ci"             
           

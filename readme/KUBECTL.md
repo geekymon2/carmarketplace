@@ -8,6 +8,7 @@
 - kubectl create -f FILENAME: Create a resource from a file
 - kubectl apply -f FILENAME: Apply a modified resource from a file
 - kubectl delete pods <podname>
+- kubectl delete deployment <deployment_name> -n <namespace> 
 
 ## Get Status
 - kubectl get pods
@@ -16,7 +17,7 @@
 - kubectl logs <podname>
 
 ## Create Secrets
-- kubectl create secret generic <secretname> --from-literal <key>=<value>
+- kubectl create secret generic <secretname> --namespace <namespace> --from-literal <key>=<value>
 
 ## Restart Deployments
 - kubectl rollout restart deployment <deployment_name> -n <namespace>

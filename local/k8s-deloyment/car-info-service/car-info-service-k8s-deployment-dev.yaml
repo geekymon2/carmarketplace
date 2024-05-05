@@ -2,21 +2,30 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: cm-car-info-service
-  name: cm-car-info-service
+    app: car-info-service
+  name: car-info-service
   namespace: carmarketplace-dev
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: cm-car-info-service
+      app: car-info-service
   template:
     metadata:
       labels:
-        app: cm-car-info-service
+        app: car-info-service
     spec:
       containers:
-      - image: geekymon2/cm-car-info-svc
-        imagePullPolicy: Always
-        name: cm-car-info-service
-      
+        - name: cm-car-info-service
+          image: geekymon2/cm-car-info-svc:latest
+          env:
+          - name: ARTIFACT_NAME
+            value: "car-info-service"
+          - name: SPRING_PROFILES_ACTIVE
+            value: "ci"
+          - name: TZ
+            value: "Australia/Sydney"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
