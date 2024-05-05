@@ -19,4 +19,3 @@ spec:
       - image: geekymon2/cm-config-server
         imagePullPolicy: Always
         name: cm-config-server
-      

@@ -16,6 +16,10 @@ spec:
       env:
         - name: ARTIFACT_NAME
           value: "config-server"
+        - name: SPRING_PROFILES_ACTIVE
+          value: "local"
+        - name: TZ
+          value: "Australia/Sydney"
         - name: CONFIG_SERVER_ENCRYPT_KEY
           valueFrom:
             secretKeyRef:
