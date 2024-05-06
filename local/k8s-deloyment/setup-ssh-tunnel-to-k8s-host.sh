@@ -6,4 +6,4 @@
 # Access to dashboard locally via the url below.
 ####: http://localhost:8181/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/
 
-ssh -L 8181:localhost:8001 mon2@mon2desktop
+ssh -L 8181:localhost:8001 mon2@geekymon2-desktop

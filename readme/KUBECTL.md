@@ -21,3 +21,6 @@
 
 ## Restart Deployments
 - kubectl rollout restart deployment <deployment_name> -n <namespace>
+
+## Tools to Install in Pods for Troubleshooting
+- apt update && apt install net-tools && curl &&  dnsutils
