@@ -5,7 +5,7 @@ metadata:
   namespace: carmarketplace-dev
 spec:
   containers:
-    - name: cm-config-server
+    - name: config-server
       image: geekymon2/cm-config-server:latest
       resources:
         requests:

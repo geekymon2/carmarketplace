@@ -1,11 +1,17 @@
+# For troubleshooting only
 apiVersion: v1
 kind: Pod
 metadata:
   name: car-info-service
+  namespace: carmarketplace-dev
 spec:
+  restartPolicy: Never
   containers:
-    - name: cm-car-info-service
+    - name: car-info-service
       image: geekymon2/cm-car-info-svc:latest
+      command:
+        - sleep
+        - "8600"
       resources:
         requests:
           memory: "256Mi"
