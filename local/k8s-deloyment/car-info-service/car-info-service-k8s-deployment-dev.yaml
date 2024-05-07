@@ -21,10 +21,17 @@ spec:
           env:
           - name: ARTIFACT_NAME
             value: "car-info-service"
-          - name: SPRING_PROFILES_ACTIVE
-            value: "ci"
+          - name: DB_NAME
+            value: "carinfodbci"            
           - name: TZ
             value: "Australia/Sydney"
+          - name: SPRING_PROFILES_ACTIVE
+            value: "ci"
+          - name: CARINFO_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: carinfodbpassword
+                key: carinfodbpassword
           resources:
             limits:
               memory: "512Mi"
