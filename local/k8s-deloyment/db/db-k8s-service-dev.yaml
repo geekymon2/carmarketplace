@@ -4,11 +4,5 @@ metadata:
   name: db
   namespace: carmarketplace-dev
 spec:
-  type: ClusterIP
-  selector:
-    app: db
-  ports:
-  - port: 3306
-    targetPort: 3306
-  externalIPs:
-  - 192.168.1.119
+  type: ExternalName
+  externalName: geekymon2-desktop
