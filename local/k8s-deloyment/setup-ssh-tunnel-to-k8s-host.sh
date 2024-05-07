@@ -1,6 +1,7 @@
 #!bin/bash
-# This script enables ssh tunnel between workstation and k8s server to allow
-# access to minikube dashboard on the workstation to manage the cluster
+# This script enables ssh tunnel between workstation and k8s server
+# IF K8S is setup to run on another server
+# Allows access to minikube dashboard on the workstation to manage the cluster
 # on the k8s server minikube is running and using proxy with port 8001
 # on the local workstation port is 8181
 # Access to dashboard locally via the url below.
