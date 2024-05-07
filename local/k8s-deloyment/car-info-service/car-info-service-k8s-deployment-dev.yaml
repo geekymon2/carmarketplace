@@ -21,7 +21,7 @@ spec:
           env:
           - name: ARTIFACT_NAME
             value: "car-info-service"
-          - name: DB_NAME
+          - name: CARINFO_DB_NAME
             value: "carinfodbci"            
           - name: TZ
             value: "Australia/Sydney"
