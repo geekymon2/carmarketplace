@@ -14,9 +14,10 @@ refer to installation guide at: https://minikube.sigs.k8s.io/docs/start/
 winget install Helm.Helm
 ```
 
+
 ## Start minikube
 ```
-minikube start --no-vtx-check
+minikube start --no-vtx-check --cpus=6 --memory=4096
 ```
 
 ## Install minikube dashboard
