@@ -13,7 +13,7 @@ sudo apt-get install helm
 ```
 ## Start minikube
 ```
-minikube start --cpus=8 --memory=8192
+minikube start --cpus=8 --memory=8192 --static-ip 192.168.200.200
 ```
 
 ## Install minikube dashboard
@@ -25,16 +25,21 @@ helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dash
 ## Configure to run at startup if required
 ```
 
-## Enable metric-server add-on
+## Enable add-ons
 ```
 minikube addons enable metrics-server
+minikube addons enable dashboard
+minikube addons enable ingress
+minikube addons enable ingress-dns
 ```
-
+## Start proxy
+```
+kubectl proxy --address 0.0.0.0 --disable-filter=true
+```
 ## Launch dashboard
 ```
 minikube dashboard
 ```
-
-## Startup
+## Setup auto startup
 * systemctl start minikube
 * systemctl status minikube
