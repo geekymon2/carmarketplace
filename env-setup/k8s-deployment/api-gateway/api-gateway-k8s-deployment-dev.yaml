@@ -20,7 +20,7 @@ spec:
           image: geekymon2/cm-apigateway:latest
           env:
           - name: ARTIFACT_NAME
-            value: "api-gateway"        
+            value: "car-apigateway"
           - name: TZ
             value: "Australia/Sydney"
           - name: SPRING_PROFILES_ACTIVE
