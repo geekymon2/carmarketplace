@@ -5,4 +5,4 @@ minikube addons enable dashboard
 minikube addons enable ingress
 minikube addons enable ingress-dns
 kubectl proxy --address 0.0.0.0 --disable-filter=true &
-minikube dashboard &
+minikube dashboard --url
