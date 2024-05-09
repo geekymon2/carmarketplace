@@ -1,4 +1,4 @@
-minikube start --cpus=8 --memory=8192 --static-ip 192.168.100.254
+minikube start --cpus=8 --memory=8192 --vm-driver=virtualbox
 helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
 minikube addons enable metrics-server
 minikube addons enable dashboard
