@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: car-info-service
+  name: car-listing-service
   namespace: carmarketplace-dev
 spec:
   restartPolicy: Never
   containers:
-    - name: car-info-service
-      image: geekymon2/cm-car-info-svc:latest
+    - name: car-listing-service
+      image: geekymon2/cm-car-listing-svc:latest
       command:
         - sleep
         - "8600"
@@ -21,15 +21,15 @@ spec:
           cpu: "200m"
       env:
         - name: ARTIFACT_NAME
-          value: "car-info-service"
-        - name: CARINFO_DB_NAME
-          value: "carinfodbci"
+          value: "car-listing-service"
+        - name: CARLISTING_DB_NAME
+          value: "carlistingdbci"
         - name: TZ
           value: "Australia/Sydney"
         - name: SPRING_PROFILES_ACTIVE
           value: "ci"     
-        - name: CARINFO_DB_PASSWORD
+        - name: CARLISTING_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: carinfodbpassword
-              key: carinfodbpassword
+              name: carlistingdbpassword
+              key: carlistingdbpassword
