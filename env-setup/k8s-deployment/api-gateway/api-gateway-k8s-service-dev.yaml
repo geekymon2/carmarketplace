@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: car-info-service
+  name: api-gateway
   namespace: carmarketplace-dev
 spec:
   selector:
-    app: car-info-service
+    app: api-gateway
   ports:
     - name: http
       protocol: TCP
-      port: 8082
-      targetPort: 8082
+      port: 8008
+      targetPort: 8008

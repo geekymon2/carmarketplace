@@ -11,6 +11,29 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.
 sudo apt-get update
 sudo apt-get install helm
 ```
+## Start minikube
+```
+minikube start --cpus=8 --memory=8192
+```
+
+## Install minikube dashboard
+```
+# Add kubernetes-dashboard repository
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+# Deploy a Helm Release named "kubernetes-dashboard" using the kubernetes-dashboard chart
+helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+## Configure to run at startup if required
+```
+
+## Enable metric-server add-on
+```
+minikube addons enable metrics-server
+```
+
+## Launch dashboard
+```
+minikube dashboard
+```
 
 ## Startup
 * systemctl start minikube
