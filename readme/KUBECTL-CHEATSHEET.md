@@ -9,7 +9,7 @@
 - kubectl apply -f FILENAME: Apply a modified resource from a file
 - kubectl delete pods <podname>
 - kubectl delete deployment <deployment_name> -n <namespace> 
-- kubectl apply -k <folder> --recursive: Apply multiple files recursively
+- kubectl apply -f <folder> --recursive: Apply multiple files recursively
 
 ## Get Status
 - kubectl get pods
