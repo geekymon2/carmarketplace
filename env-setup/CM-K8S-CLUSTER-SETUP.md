@@ -17,3 +17,6 @@ Refer to setup instructions within LOCAL-MINIKUBE-SETUP guides.
 
 ### Access Dashboard
 * Local Machine: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/workloads?namespace=default
+
+### Check NGINX configuration
+kubectl exec ingress-nginx-controller-xxxxxxxxxxx -n ingress-nginx -- cat /etc/nginx/nginx.conf
