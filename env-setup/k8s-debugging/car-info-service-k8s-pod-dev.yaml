@@ -1,5 +1,5 @@
 # For troubleshooting only
-apiVersion: v1
+apiVersion: apps/v1
 kind: Pod
 metadata:
   name: car-info-service
@@ -9,9 +9,6 @@ spec:
   containers:
     - name: car-info-service
       image: geekymon2/cm-car-info-svc:latest
-      command:
-        - sleep
-        - "8600"
       resources:
         requests:
           memory: "256Mi"
@@ -27,9 +24,12 @@ spec:
         - name: TZ
           value: "Australia/Sydney"
         - name: SPRING_PROFILES_ACTIVE
-          value: "ci"     
+          value: "ci"
         - name: CARINFO_DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: carinfodbpassword
               key: carinfodbpassword
+      command:
+        - sleep
+        - "8600"
