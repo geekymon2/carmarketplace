@@ -24,5 +24,4 @@
 - kubectl rollout restart deployment <deployment_name> -n <namespace>
 
 ## Tools to Install in Pods for Troubleshooting
-- apt update && apt install -y net-tools && apt install -y curl && apt install -y dnsutils && apt install -y iputils-ping
-ping && apt install -y telnet
+- apt update && apt install -y net-tools && apt install -y curl && apt install -y dnsutils && apt install -y iputils-ping && apt install -y telnet

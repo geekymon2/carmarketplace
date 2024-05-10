@@ -1,5 +1,5 @@
 # For troubleshooting only
-apiVersion: apps/v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: car-info-service

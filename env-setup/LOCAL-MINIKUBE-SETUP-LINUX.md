@@ -38,7 +38,7 @@ kubectl proxy --address 0.0.0.0 --disable-filter=true
 ```
 ## Launch dashboard
 ```
-minikube dashboard
+minikube dashboard --url
 ```
 ## Setup auto startup
 * systemctl start minikube
