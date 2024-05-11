@@ -3,7 +3,8 @@ data:
   X-Different-Name: "true"
   X-Request-Start: t=${msec}
   X-Using-Nginx-Controller: "true"
-  X-Forwarded-Prefix: "/api"
+  X-Forwarded-Prefix: "/api/"
+  X-Forwarded-Host: "$host"
 kind: ConfigMap
 metadata:
   name: custom-headers
