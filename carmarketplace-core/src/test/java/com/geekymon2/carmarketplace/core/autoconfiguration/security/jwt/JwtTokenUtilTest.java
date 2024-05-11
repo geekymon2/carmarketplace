@@ -63,4 +63,14 @@ class JwtTokenUtilTest {
                 () -> tokenUtil.validateToken("Bearer foo"),
                 "JwtTokenMalformedException was expected");
     }
+
+    @Test
+    @DisplayName("Validate valid token.")
+    void validateToken_Valid() {
+        Mockito.when(config.getJwtSecret()).thenReturn(Jwts.SIG.HS256.key().build().toString());
+        Mockito.when(config.getJwtValidity()).thenReturn((long)20);
+        String token = tokenUtil.generateToken("geekymon2@gmail.com");
+
+        Assertions.assertDoesNotThrow(() -> tokenUtil.validateToken("Bearer %s".formatted(token)));
+    }
 }

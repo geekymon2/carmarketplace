@@ -10,14 +10,17 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.sql.Date;
 
 
 @Component
+@Slf4j
 public class JwtTokenUtil {
     private final JwtConfig config;
 
@@ -25,7 +28,7 @@ public class JwtTokenUtil {
         this.config = config;
     }
 
-    private Key getSigningKey() {
+    private SecretKey getSigningKey() {
         byte[] keyBytes = config.getJwtSecret().getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
@@ -53,7 +56,7 @@ public class JwtTokenUtil {
                 throw new JwtTokenIncorrectStructureException("Incorrect Authentication Structure");
             }
 
-            Jwts.parser().verifyWith(Keys.password(config.getJwtSecret().toCharArray()))
+            Jwts.parser().verifyWith(getSigningKey())
                     .build()
                     .parseSignedClaims(parts[1])
                     .getPayload();
@@ -63,7 +66,8 @@ public class JwtTokenUtil {
         } catch (ExpiredJwtException ex) {
             throw new JwtTokenMalformedException("Expired JWT token");
         } catch (UnsupportedJwtException ex) {
-            throw new JwtTokenMalformedException("Unsupported JWT token");
+            log.error("Unsupported JWT token");
+            throw ex;
         } catch (IllegalArgumentException ex) {
             throw new JwtTokenMissingException("JWT claims string is empty.");
         }
