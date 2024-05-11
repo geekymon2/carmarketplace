@@ -39,7 +39,7 @@ class JwtTokenUtilTest {
     @Test
     @DisplayName("Validate a malformed token test.")
     void validateToken_Malformed() {
-        Mockito.when(config.getJwtSecret()).thenReturn("testing");
+        Mockito.when(config.getJwtSecret()).thenReturn(Jwts.SIG.HS256.key().build().toString());
 
         Assertions.assertThrows(JwtTokenMalformedException.class,
                 () -> tokenUtil.validateToken("Bearer qwerty"),
@@ -57,7 +57,7 @@ class JwtTokenUtilTest {
     @Test
     @DisplayName("Validate missing token test.")
     void validateToken_TokenMissing() {
-        Mockito.when(config.getJwtSecret()).thenReturn("testing");
+        Mockito.when(config.getJwtSecret()).thenReturn(Jwts.SIG.HS256.key().build().toString());
 
         Assertions.assertThrows(JwtTokenMalformedException.class,
                 () -> tokenUtil.validateToken("Bearer foo"),
