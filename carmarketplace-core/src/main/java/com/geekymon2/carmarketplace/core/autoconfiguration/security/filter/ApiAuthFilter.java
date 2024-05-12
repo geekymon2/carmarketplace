@@ -6,8 +6,8 @@ import com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt.JwtToken
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.validator.RouterValidator;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
-import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMissingException;
+import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenValidationException;
 import com.geekymon2.carmarketplace.core.models.ErrorResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -57,7 +57,7 @@ public class ApiAuthFilter extends OncePerRequestFilter {
 
                 tokenUtil.validateToken(authHeader);
 
-            } catch (JwtTokenMalformedException |
+            } catch (JwtTokenValidationException |
                      JwtTokenMissingException |
                      JwtTokenIncorrectStructureException e) {
                 log.error("Error Validating Authentication Header in API Authentication Filter", e);

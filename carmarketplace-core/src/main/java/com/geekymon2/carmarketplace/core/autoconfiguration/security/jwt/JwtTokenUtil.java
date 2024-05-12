@@ -2,8 +2,7 @@ package com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt;
 
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
-import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
-import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMissingException;
+import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenValidationException;
 import io.jsonwebtoken.ClaimsBuilder;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
 import java.sql.Date;
 
 
@@ -49,7 +47,7 @@ public class JwtTokenUtil {
                 .compact();
     }
 
-    public void validateToken(final String header) throws JwtTokenMalformedException, JwtTokenMissingException {
+    public void validateToken(final String header) throws JwtTokenValidationException {
         try {
             String[] parts = header.split(" ");
             if (parts.length != 2 || !"Bearer".equals(parts[0])) {
@@ -61,15 +59,9 @@ public class JwtTokenUtil {
                     .parseSignedClaims(parts[1])
                     .getPayload();
 
-        } catch (MalformedJwtException ex) {
-            throw new JwtTokenMalformedException("Invalid JWT token");
-        } catch (ExpiredJwtException ex) {
-            throw new JwtTokenMalformedException("Expired JWT token");
-        } catch (UnsupportedJwtException ex) {
-            log.error("Unsupported JWT token");
-            throw ex;
-        } catch (IllegalArgumentException ex) {
-            throw new JwtTokenMissingException("JWT claims string is empty.");
+        } catch (MalformedJwtException | ExpiredJwtException | UnsupportedJwtException | IllegalArgumentException e) {
+            log.error("Failed to validate JWT token", e);
+            throw new JwtTokenValidationException("Failed to validate JWT token");
         }
     }
 }

@@ -2,7 +2,7 @@ package com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt;
 
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
 import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenIncorrectStructureException;
-import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenMalformedException;
+import com.geekymon2.carmarketplace.core.exception.jwt.JwtTokenValidationException;
 import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +41,7 @@ class JwtTokenUtilTest {
     void validateToken_Malformed() {
         Mockito.when(config.getJwtSecret()).thenReturn(Jwts.SIG.HS256.key().build().toString());
 
-        Assertions.assertThrows(JwtTokenMalformedException.class,
+        Assertions.assertThrows(JwtTokenValidationException.class,
                 () -> tokenUtil.validateToken("Bearer qwerty"),
                 "JwtTokenMalformedException was expected");
     }
@@ -52,16 +52,6 @@ class JwtTokenUtilTest {
         Assertions.assertThrows(JwtTokenIncorrectStructureException.class,
                 () -> tokenUtil.validateToken("foo"),
                 "JwtTokenIncorrectStructureException was expected");
-    }
-
-    @Test
-    @DisplayName("Validate missing token test.")
-    void validateToken_TokenMissing() {
-        Mockito.when(config.getJwtSecret()).thenReturn(Jwts.SIG.HS256.key().build().toString());
-
-        Assertions.assertThrows(JwtTokenMalformedException.class,
-                () -> tokenUtil.validateToken("Bearer foo"),
-                "JwtTokenMalformedException was expected");
     }
 
     @Test
