@@ -39,3 +39,8 @@ spec:
               secretKeyRef:
                 name: carinfodbpassword
                 key: carinfodbpassword
+          - name: JWT_AUTH_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: jwtauthsecret
+                key: jwtauthsecret                
