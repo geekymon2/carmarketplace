@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Primary;
 @Setter
 @Configuration
 @Primary
-@ConfigurationProperties(prefix = "jwt-config")
+@ConfigurationProperties(prefix = "app-config.jwt-config")
 public class JwtConfig {
     private Boolean jwtDisabled;
     private String jwtSecret;

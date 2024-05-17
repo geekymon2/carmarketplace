@@ -29,6 +29,7 @@ public class ApiAuthAutoConfig {
 
         log.info("Initializing API Authentication Auto Configuration");
         log.info("Is JWT Authentication turned off: {}", jwtConfig.getJwtDisabled());
+        log.info("JWT validity: {}", jwtConfig.getJwtValidity());
     }
 
     @Bean
