@@ -8,6 +8,9 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import jakarta.annotation.PostConstruct;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Configuration
 @Slf4j
 public class CorsFilterAutoConfig {
@@ -22,8 +25,11 @@ public class CorsFilterAutoConfig {
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
+        log.info("Adding CORS config.");
         config.setAllowCredentials(true);
-        config.addAllowedOriginPattern("*");
+        config.setAllowedOrigins(List.of("http://localhost:4200"));
+        config.setMaxAge(3600L);
+        config.addExposedHeader("X-Get-Header");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
