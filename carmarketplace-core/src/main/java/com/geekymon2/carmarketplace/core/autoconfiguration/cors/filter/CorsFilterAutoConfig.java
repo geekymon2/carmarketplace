@@ -34,12 +34,12 @@ public class CorsFilterAutoConfig {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfig = new CorsConfiguration();
         log.info("Applying CORS configuration from properties: {}", config.toString());
-        corsConfig.setAllowCredentials(config.getAllowCredentials());
-        corsConfig.setAllowedOrigins(List.of(config.getAllowedOrigins()));
-        corsConfig.setMaxAge(config.getMaxAge());
-        corsConfig.addExposedHeader(config.getExposedHeader());
-        corsConfig.addAllowedHeader(config.getAllowedHeader());
-        corsConfig.addAllowedMethod(config.getAllowedMethod());
+        if (config.getAllowCredentials() != null) corsConfig.setAllowCredentials(config.getAllowCredentials());
+        if (config.getAllowedOrigins() != null) corsConfig.setAllowedOrigins(List.of(config.getAllowedOrigins()));
+        if (config.getMaxAge() != null) corsConfig.setMaxAge(config.getMaxAge());
+        if (config.getExposedHeader() != null) corsConfig.addExposedHeader(config.getExposedHeader());
+        if (config.getAllowedHeader() != null) corsConfig.addAllowedHeader(config.getAllowedHeader());
+        if (config.getAllowedMethod() != null) corsConfig.addAllowedMethod(config.getAllowedMethod());
         source.registerCorsConfiguration("/**", corsConfig);
         return new CorsFilter(source);
     }
