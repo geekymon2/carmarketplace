@@ -33,7 +33,7 @@ public class CorsFilterAutoConfig {
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfig = new CorsConfiguration();
-        log.info("Applying CORS configuration from properties: " + config.toString());
+        log.info("Applying CORS configuration from properties: {}", config.toString());
         corsConfig.setAllowCredentials(config.getAllowCredentials());
         corsConfig.setAllowedOrigins(List.of(config.getAllowedOrigins()));
         corsConfig.setMaxAge(config.getMaxAge());
