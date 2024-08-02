@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorResponseDto  implements Serializable {
+public class ErrorResponseDto implements Serializable {
     private Date timestamp;
     private int status;
     private String error;
