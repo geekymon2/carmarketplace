@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Primary;
 @ToString
 @ConfigurationProperties(prefix = "app-config.cors-config")
 public class CorsConfig {
+    private Boolean enabled;
     private String[] allowedOrigins;
     private Long maxAge;
     private Boolean allowCredentials;

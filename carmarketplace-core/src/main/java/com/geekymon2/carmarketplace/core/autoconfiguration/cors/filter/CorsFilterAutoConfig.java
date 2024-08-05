@@ -9,12 +9,15 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import jakarta.annotation.PostConstruct;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
 @Configuration
 @Slf4j
-public class CorsFilterAutoConfig {
+@EnableWebMvc
+public class CorsFilterAutoConfig implements WebMvcConfigurer {
 
     @Autowired
     private final CorsConfig config;
@@ -33,14 +36,16 @@ public class CorsFilterAutoConfig {
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfig = new CorsConfiguration();
-        log.info("Applying CORS configuration from properties: {}", config.toString());
-        if (config.getAllowCredentials() != null) corsConfig.setAllowCredentials(config.getAllowCredentials());
-        if (config.getAllowedOrigins() != null) corsConfig.setAllowedOrigins(List.of(config.getAllowedOrigins()));
-        if (config.getMaxAge() != null) corsConfig.setMaxAge(config.getMaxAge());
-        if (config.getExposedHeader() != null) corsConfig.addExposedHeader(config.getExposedHeader());
-        if (config.getAllowedHeader() != null) corsConfig.addAllowedHeader(config.getAllowedHeader());
-        if (config.getAllowedMethod() != null) corsConfig.addAllowedMethod(config.getAllowedMethod());
-        source.registerCorsConfiguration("/**", corsConfig);
+        if (config.getEnabled()) {
+            log.info("Applying CORS configuration from properties: {}", config.toString());
+            if (config.getAllowCredentials() != null) corsConfig.setAllowCredentials(config.getAllowCredentials());
+            if (config.getAllowedOrigins() != null) corsConfig.setAllowedOrigins(List.of(config.getAllowedOrigins()));
+            if (config.getMaxAge() != null) corsConfig.setMaxAge(config.getMaxAge());
+            if (config.getExposedHeader() != null) corsConfig.addExposedHeader(config.getExposedHeader());
+            if (config.getAllowedHeader() != null) corsConfig.addAllowedHeader(config.getAllowedHeader());
+            if (config.getAllowedMethod() != null) corsConfig.addAllowedMethod(config.getAllowedMethod());
+            source.registerCorsConfiguration("/**", corsConfig);
+        }
         return new CorsFilter(source);
     }
 }
