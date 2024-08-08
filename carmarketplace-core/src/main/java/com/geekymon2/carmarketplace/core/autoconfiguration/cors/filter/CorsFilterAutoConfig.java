@@ -36,6 +36,7 @@ public class CorsFilterAutoConfig implements WebMvcConfigurer {
 
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration corsConfig = new CorsConfiguration();
+        log.info("CORS configuration enabled: {}", config.getEnabled());
         if (config.getEnabled()) {
             log.info("Applying CORS configuration from properties: {}", config.toString());
             if (config.getAllowCredentials() != null) corsConfig.setAllowCredentials(config.getAllowCredentials());
