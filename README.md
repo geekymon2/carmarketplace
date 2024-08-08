@@ -4,6 +4,9 @@ Microservices App for Car Marketplace
 
 ## Status
 
+**ui** <br/>
+[![build](https://github.com/geekymon2/carmarketplace-ui/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-ui/actions/workflows/build.yml) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-ui) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-ui)
+
 **apigateway** <br/>
 [![build](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml/badge.svg)](https://github.com/geekymon2/carmarketplace-apigateway/actions/workflows/build.yml) &nbsp;&nbsp; [![codecov](https://codecov.io/gh/geekymon2/carmarketplace-apigateway/branch/main/graph/badge.svg?token=XTL0XCZ4JI)](https://codecov.io/gh/geekymon2/carmarketplace-apigateway) &nbsp;&nbsp; ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/geekymon2/cm-apigateway) &nbsp;&nbsp; ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/geekymon2/cm-apigateway)
 
@@ -25,6 +28,7 @@ Microservices App for Car Marketplace
 
 ## Related Git Repos
 
+* [carmarketplace-ui](https://github.com/geekymon2/carmarketplace-ui) - UI
 * [carmarketplace-apigateway](https://github.com/geekymon2/carmarketplace-apigateway) - Api Gateway
 * [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc) - Car Info Services
 * [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc) - Car Listing Service
@@ -35,6 +39,7 @@ Microservices App for Car Marketplace
 * [carmarketplace-config](https://github.com/geekymon2/carmarketplace-config) - Configuration
 
 ## DockerHub Images
+* https://hub.docker.com/repository/docker/geekymon2/cm-ui
 * https://hub.docker.com/repository/docker/geekymon2/cm-apigateway
 * https://hub.docker.com/repository/docker/geekymon2/cm-car-info-svc
 * https://hub.docker.com/repository/docker/geekymon2/cm-car-listing-svc
@@ -44,6 +49,8 @@ Microservices App for Car Marketplace
 * https://hub.docker.com/repository/docker/geekymon2/cm-discovery-server
 
 ## Technologies Used
+* Angular
+* NodeJS
 * Spring Boot 3.x
 * Spring Cloud 2023.x
 * Spring Cloud Config
