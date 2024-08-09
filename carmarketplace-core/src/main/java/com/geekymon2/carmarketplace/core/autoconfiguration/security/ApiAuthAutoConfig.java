@@ -2,6 +2,7 @@ package com.geekymon2.carmarketplace.core.autoconfiguration.security;
 
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.jwt.JwtTokenUtil;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.properties.JwtConfig;
+import com.geekymon2.carmarketplace.core.autoconfiguration.security.validator.RouterConfig;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.validator.RouterValidator;
 import com.geekymon2.carmarketplace.core.autoconfiguration.security.filter.ApiAuthFilter;
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +34,8 @@ public class ApiAuthAutoConfig {
     }
 
     @Bean
-    public RouterValidator routerValidator() {
-        return new RouterValidator();
+    public RouterValidator routerValidator(@Autowired RouterConfig config) {
+        return new RouterValidator(config);
     }
 
     @Bean
