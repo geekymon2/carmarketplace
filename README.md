@@ -33,7 +33,7 @@ Microservices App for Car Marketplace
 * [carmarketplace-car-info-svc](https://github.com/geekymon2/carmarketplace-car-info-svc) - Car Info Services
 * [carmarketplace-car-listing-svc](https://github.com/geekymon2/carmarketplace-car-listing-svc) - Car Listing Service
 * [carmarketplace-user-svc](https://github.com/geekymon2/carmarketplace-user-svc) - User Service
-* [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imagestore-svc) - Image Store Service
+* [carmarketplace-imgstore-svc](https://github.com/geekymon2/carmarketplace-imgstore-svc) - Image Store Service
 * [carmarketplace-config-server](https://github.com/geekymon2/carmarketplace-config-server) - Config Server
 * [carmarketplace-discovery-server](https://github.com/geekymon2/carmarketplace-discovery-server) - Discovery Server
 * [carmarketplace-config](https://github.com/geekymon2/carmarketplace-config) - Configuration
