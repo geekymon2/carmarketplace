@@ -25,9 +25,9 @@ import java.util.List;
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler
 {
-    private String INCORRECT_REQUEST = "INCORRECT_REQUEST";
     private String BAD_REQUEST = "BAD_REQUEST";
     private String INVALID_PARAM = "INVALID_PARAMETER";
+    private String NOT_FOUND = "NOT_FOUND";
 
     @PostConstruct
     public void init() {
@@ -41,7 +41,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler
     {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        ErrorResponseDto error = new ErrorResponseDto(new Date(), HttpStatus.NOT_FOUND.value(), INCORRECT_REQUEST, details, ((ServletWebRequest)request).getRequest().getRequestURI());
+        ErrorResponseDto error = new ErrorResponseDto(new Date(), HttpStatus.NOT_FOUND.value(), NOT_FOUND, details, ((ServletWebRequest)request).getRequest().getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
