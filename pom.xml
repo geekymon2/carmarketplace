@@ -18,7 +18,7 @@
         <springdoc.openapi.version>2.5.0</springdoc.openapi.version>
         <jjwt.version>0.12.5</jjwt.version>
         <mysql-connector.version>8.0.33</mysql-connector.version>
-        <jakarta.xml.bind.version>4.0.2</jakarta.xml.bind.version>
+        <jakarta.xml.bind.version>4.0.3</jakarta.xml.bind.version>
         <modelmapper.version>3.2.0</modelmapper.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <jacoco.maven.plugin.version>0.8.7</jacoco.maven.plugin.version>
